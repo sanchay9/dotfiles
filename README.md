@@ -8,5 +8,5 @@ Lightweight Neovim Configuration (Requires nightly build)
 
 ## Installation
 
-    git clone https://github.com/sanchay9/dotfiles.git ~/nvim
+    git clone https://github.com/sanchay9/dotfiles.git
 
