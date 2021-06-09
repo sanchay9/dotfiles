@@ -98,9 +98,6 @@ vim.g.startify_custom_header = {
 }
 vim.cmd([[autocmd User Startified setlocal cursorline]])
 
----- cpp enhanced highlight
-vim.g.c_no_curly_error = 1
-
 ---- telescope
 require('telescope').setup { defaults = {
         scroll_strategy = 'cycle',
