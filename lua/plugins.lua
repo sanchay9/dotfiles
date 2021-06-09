@@ -14,7 +14,6 @@ return require('packer').startup({
         use 'NLKNguyen/papercolor-theme'
 
         -- visuals
-        use 'octol/vim-cpp-enhanced-highlight'
         use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua' }
         use 'itchyny/lightline.vim'
         use 'kyazdani42/nvim-web-devicons'
@@ -25,10 +24,13 @@ return require('packer').startup({
         -- floating terminal
         use 'voldikss/vim-floaterm'
 
-        --  telescope
+        -- telescope
         use 'nvim-telescope/telescope.nvim'
         use 'nvim-lua/popup.nvim'
         use 'nvim-lua/plenary.nvim'
+
+        -- treesitter
+        use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
         -- code snippets
         use 'SirVer/ultisnips'

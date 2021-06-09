@@ -26,8 +26,8 @@ local install_path = vim.fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
 end
+
 vim.cmd [[packadd packer.nvim]]
-vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- auto compile when there are changes in plugins.lua
 
 
 -------------------------------------------------------- PLUGINS SETUP -----------------------------------------------------------
@@ -60,7 +60,7 @@ vim.g.floaterm_height = 0.5
 
 ---- lightline
 vim.g.lightline = {
-    colorscheme = 'gruvbox';
+    colorscheme = 'onedark';
     enable = { tabline = 0 };
     active = { left = { { 'mode', 'paste' }, { 'gitbranch', 'readonly', 'filename', 'modified' } } };
     active = { right = { { 'percent', 'lineinfo' } } };
@@ -115,6 +115,14 @@ require('telescope').setup { defaults = {
             },
         },
     }
+}
+
+---- treesitter
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = { "c", "cpp", "html", "javascript", "json", "latex", "lua", "python" },
+    highlight = {
+        enable = true,
+    },
 }
 
 

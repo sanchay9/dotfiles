@@ -21,4 +21,4 @@ vim.g.dracula_italic = false
 vim.g.onedark_hide_endofbuffer = true
 
 ---- set colorscheme (order is important)
-vim.cmd 'colorscheme gruvbox'
+vim.cmd 'colorscheme onedark'
