@@ -1,10 +1,10 @@
 """" change font
-" GuiFont! FiraCode\ NF:h11
-GuiFont! Fira\ Code:h11
+GuiFont! FiraCode\ NF:h12
+" GuiFont! Fira\ Code:h11
 " GuiFont! Monoid:h11
 " GuiFont! Input:h12
 " GuiFont! Consolas:h12
-" GuiFont! Victor\ Mono:h11
+" GuiFont! VictorMono\ NF:h11
 " GuiFont! Ubuntu\ Mono:h12
 
 
@@ -12,7 +12,7 @@ GuiFont! Fira\ Code:h11
 GuiPopupmenu 0
 
 """" set linespace
-"GuiLinespace 2
+" GuiLinespace 1
 
 """" open maximized
 "call GuiWindowMaximized(1)

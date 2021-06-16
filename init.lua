@@ -20,6 +20,8 @@ local execute = vim.api.nvim_command
 require('options')
 require('mappings')
 require('colorschemes')
+require('lualin')
+require('autopair')
 
 ---- Packer.nvim setup
 local install_path = vim.fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
@@ -27,7 +29,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
 end
 
-vim.cmd [[packadd packer.nvim]]
+vim.cmd[[packadd packer.nvim]]
 
 
 -------------------------------------------------------- PLUGINS SETUP -----------------------------------------------------------
@@ -37,10 +39,6 @@ vim.g.UltiSnipsExpandTrigger = '<tab>'
 vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
 vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
 vim.g.UltiSnipsEditSplit = 'vertical'
-
----- autopairs
-vim.g.AutoPairsMultilineClose = 0
-
 
 ---- vimwiki
 vim.g.vimwiki_list = { { path = '~/Documents/vimwiki', syntax = 'markdown', ext = '.md' } }
@@ -57,16 +55,6 @@ vim.g.floaterm_autoinsert = 1
 vim.g.floaterm_width = 0.7
 vim.g.floaterm_height = 0.5
 
-
----- lightline
-vim.g.lightline = {
-    colorscheme = 'onedark';
-    enable = { tabline = 0 };
-    active = { left = { { 'mode', 'paste' }, { 'gitbranch', 'readonly', 'filename', 'modified' } } };
-    active = { right = { { 'percent', 'lineinfo' } } };
-    component_function = { gitbranch = 'fugitive#head', };
-}
-
 ---- startify
 vim.g.startify_session_persistence = 1
 vim.g.startify_enable_special = 0
@@ -74,11 +62,8 @@ vim.g.startify_bookmarks = {
     'D:/Sanchay/Study/CP/.lib',
     'main.ahk',
     { i = '$MYVIMRC' },
+    { c = '~/AppData/Local/nvim/lua/' },
     { w = '~/Documents/vimwiki/Index.md' };
-    { m = '~/AppData/Local/nvim/lua/mappings.lua' },
-    { p = '~/AppData/Local/nvim/lua/plugins.lua' },
-    { o = '~/AppData/Local/nvim/lua/options.lua' },
-    { c = '~/AppData/Local/nvim/lua/colorschemes.lua' },
     { t = '~/Documents/WindowsPowerShell/profile.ps1' }
 }
 vim.g.startify_lists = {
@@ -96,7 +81,10 @@ vim.g.startify_custom_header = {
 [[  │ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝  │]],
 [[  └───────────────────────────────────────────────────────────────────────────┘]]
 }
-vim.cmd([[autocmd User Startified setlocal cursorline]])
+-- vim.cmd[[autocmd User Startified setlocal cursorline]]
+
+---- cpp enhanced highlight
+vim.g.c_no_curly_error = 1
 
 ---- telescope
 require('telescope').setup { defaults = {
@@ -125,9 +113,12 @@ require'nvim-treesitter.configs'.setup {
 
 ----------------------------------------------------------- OTHERS ---------------------------------------------------------------
 
-vim.cmd([[autocmd BufWritePre * %s/\s\+$//e]])                        -- remove trailing whitespaces
--- vim.cmd([[autocmd BufWritePre * %s/\n\+\%$//e]])                      -- remove trailing nl
-vim.cmd([[autocmd FocusGained * :checktime]])                         -- reload files on focus gains
+vim.cmd[[autocmd BufWritePre * %s/\s\+$//e]]                        -- remove trailing whitespaces
+-- vim.cmd[[autocmd BufWritePre * %s/\n\+\%$//e]]                      -- remove trailing nl
+vim.cmd[[autocmd FocusGained * :checktime]]                         -- reload files on focus gains
+
+---- remember last position
+vim.cmd[[autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'| exe "normal! g`\""| endif]]
 
 ---- abbreviations
 vim.cmd[[iabbrev itn int]]

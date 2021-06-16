@@ -9,14 +9,14 @@ return require('packer').startup({
         use { 'dracula/vim', as = 'dracula' }
         use 'cocopon/iceberg.vim'
         use 'tomasr/molokai'
-        use 'arcticicestudio/nord-vim'
         use 'joshdick/onedark.vim'
         use 'NLKNguyen/papercolor-theme'
+        use 'ishan9299/nvim-solarized-lua'
 
         -- visuals
         use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua' }
-        use 'itchyny/lightline.vim'
         use 'kyazdani42/nvim-web-devicons'
+        use { 'hoob3rt/lualine.nvim' }
 
         -- startify
         use 'mhinz/vim-startify'
@@ -36,7 +36,7 @@ return require('packer').startup({
         use 'SirVer/ultisnips'
 
         -- qol
-        use 'jiangmiao/auto-pairs'
+        use 'windwp/nvim-autopairs'
         use 'tpope/vim-commentary'
         use 'tpope/vim-surround'
         use 'tpope/vim-repeat'

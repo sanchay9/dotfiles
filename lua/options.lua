@@ -37,4 +37,4 @@ opt('o', 'wildmode', 'longest:full,full')             -- first tab shows longest
 opt('o', 'wildignore', '*.exe,*.ini')                 -- ignore files
 
 -- custom options for .cpp
-vim.cmd([[autocmd BufRead,BufNewFile *.cpp :setlocal rnu foldmarker=/*,#endif foldmethod=marker ]])
+vim.cmd([[autocmd BufRead,BufNewFile *.cpp :setlocal rnu foldmarker=using\ ll,#endif foldmethod=marker ]])

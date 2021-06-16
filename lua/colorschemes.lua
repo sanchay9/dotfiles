@@ -4,9 +4,9 @@ vim.api.nvim_exec([[
         autocmd!
         autocmd ColorScheme * hi! FloatermBorder guibg=none guifg=none
         autocmd ColorScheme * hi! FloatermNC guibg=#E06C75
-        autocmd ColorScheme * hi! Folded guibg=bg
         autocmd ColorScheme * hi! CursorLineNr guibg=none
-        autocmd ColorScheme * hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+        autocmd ColorScheme * hi! Folded guibg=bg
+        autocmd ColorScheme * hi! EndOfBuffer guibg=bg guifg=bg
     augroup end
 ]], false)
 
@@ -21,4 +21,4 @@ vim.g.dracula_italic = false
 vim.g.onedark_hide_endofbuffer = true
 
 ---- set colorscheme (order is important)
-vim.cmd 'colorscheme onedark'
+vim.cmd 'colorscheme PaperColor'
