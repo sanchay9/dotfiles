@@ -6,7 +6,7 @@ Lightweight Neovim Configuration (Requires Nightly build)
 ![dashboard](preview/dashboard.png)
 
 
-## Installation
+## Download
 
     git clone https://github.com/sanchay9/dotfiles.git
 
