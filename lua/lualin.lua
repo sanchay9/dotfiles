@@ -27,10 +27,8 @@ require'lualine'.setup {
     options = {
         icons_enabled = true,
         theme = 'PaperColor',
-        -- component_separators = {'|', '|'},  --  
-        -- section_separators = {' ', ' '},    --   
-        component_separators = {'', ''},
-        section_separators = {' ', ''},
+        component_separators = { '', '' },      --  
+        section_separators = { '', '' },      --   
         disabled_filetypes = { 'startify' }
     },
 
@@ -39,9 +37,9 @@ require'lualine'.setup {
         lualine_b = { { 'branch', icon = "" } },
         lualine_c = { 'filename' },
 
-        lualine_x = { { tsicon, color = { fg = colors.green } } },
-        lualine_y = { 'progress' },
-        lualine_z = { timee }
+        lualine_x = { { tsicon, color = { fg = colors.green } }, 'progress' },
+        lualine_y = { timee },
+        lualine_z = {  }
     },
 
     inactive_sections = {
@@ -54,14 +52,6 @@ require'lualine'.setup {
         lualine_z = {}
     },
 
-    tabline = {
-        -- lualine_a = {},
-        -- lualine_b = {},
-        -- lualine_c = {},
-
-        -- lualine_x = {},
-        -- lualine_y = {},
-        -- lualine_z = {}
-    },
+    tabline = {},
     extensions = {}
 }
