@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "startpage",
+  "version": "0.2",
+
+  "icons": {
+    "64": "img/icon64.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": ["storage"]
+}

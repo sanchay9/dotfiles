@@ -1,0 +1,36 @@
+# env vars
+export TERMINAL="kitty"
+
+# XDG paths
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+
+export PATH="$HOME/.local/bin":$PATH
+export PATH="$HOME/.config/scripts":$PATH
+
+# keyboard
+xset r rate 250 40
+setxkbmap -option caps:swapescape
+xsetroot -cursor_name left_ptr
+
+# hide mouse while typing
+xbanish &
+
+# discord
+discord --start-minimized &
+
+# touchpad gestures
+libinput-gestures-setup start &
+
+#playerctld
+playerctld daemon &
+
+# compositor
+picom -b --experimental-backends
+
+# network manager
+nm-applet &
+
+# notifications
+dunst &

@@ -1,0 +1,1 @@
+echo "" | rofi -theme ~/.config/rofi/google.rasi -p "Google :" -dmenu | xargs -I{} xdg-open https://www.google.com/search?q={}

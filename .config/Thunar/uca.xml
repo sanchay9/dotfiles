@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1625486369302481-1</unique-id>
+	<command>$TERMINAL</command>
+	<description>Example for a custom action</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>application-x-compress</icon>
+	<name>Extract Here (zip)</name>
+	<unique-id>1627408574435310-1</unique-id>
+	<command>unzip %f</command>
+	<description></description>
+	<patterns>*.zip</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>application-x-compress</icon>
+	<name>Extract here (gz)</name>
+	<unique-id>1627409257309891-1</unique-id>
+	<command>tar -xvzf %f</command>
+	<description></description>
+	<patterns>*.tar.gz</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>nvim</icon>
+	<name>Open in terminal nvim</name>
+	<unique-id>1627409698767705-2</unique-id>
+	<command>$TERMINAL -e nvim %f
+</command>
+	<description></description>
+	<patterns>*</patterns>
+	<text-files/>
+</action>
+</actions>

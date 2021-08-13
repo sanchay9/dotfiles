@@ -1,0 +1,3 @@
+configuration {
+    theme: "/home/sanchay/.config/rofi/slate1.rasi";
+}
