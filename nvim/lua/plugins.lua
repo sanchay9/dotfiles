@@ -12,9 +12,12 @@ return require('packer').startup({
         use 'sainnhe/sonokai'
         use 'folke/tokyonight.nvim'
         use 'marko-cerovac/material.nvim'
+        use 'Pocco81/Catppuccino.nvim'
 
         use 'kyazdani42/nvim-web-devicons'
         use 'glepnir/galaxyline.nvim'
+        use 'lukas-reineke/indent-blankline.nvim'
+        use 'norcalli/nvim-colorizer.lua'
 
         -- startify
         use 'mhinz/vim-startify'
@@ -37,6 +40,7 @@ return require('packer').startup({
         use 'SirVer/ultisnips'
 
         -- qol
+        use 'kyazdani42/nvim-tree.lua'
         use 'windwp/nvim-autopairs'
         use 'tpope/vim-commentary'
         use 'tpope/vim-surround'

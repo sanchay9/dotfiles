@@ -205,18 +205,19 @@ int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 
-#ifdef LOCAL
-	auto begin = std::chrono::high_resolution_clock::now();
-#endif
-
 	${1:int tc; cin >> tc;
 	FOR(tn, 0, tc)
 		// cout << "Case #" << tn + 1 << ": ",
 	    }solve();
+}
+endsnippet
+snippet tim "Execution Time"
+#ifdef LOCAL
+	auto begin = std::chrono::high_resolution_clock::now();
+#endif
 
 #ifdef LOCAL
 	auto end = std::chrono::high_resolution_clock::now();
 	cerr << "\nExecution time: " << std::chrono::duration_cast<std::chrono::duration<double>> (end-begin).count() << " seconds\n";
 #endif
-}
 endsnippet

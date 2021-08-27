@@ -36,11 +36,19 @@ map('n', '<leader>q', 'ggVGp <ESC>:wincmd h<CR>')
 map('n', '<leader>y', 'ggVGccc')
 map('n', '<leader>,', '<CMD> wa | SClose | cd ~ | Startify<CR>')
 map('n', '<leader>u', '<CMD> UndotreeToggle | UndotreeShow<CR>')
+
+map('n', '<C-n>', '<CMD> NvimTreeToggle<CR>')
+map('n', '<leader>n', '<CMD> NvimTreeFindFile<CR>')
+
 map('n', '<leader>/', '<CMD> noh<CR>')
 map('n', '<leader>py', '<CMD> wa | FloatermNew python3<CR>')
+-- map('n', '<leader>o', '<CMD> setlocal spell! spelllang=en_us<CR>') // orthography
 
 ---- run the macro in q register (instead of Ex mode)
 map('n', 'Q', '@q')
+
+---- replace in current file
+map('n', 'S', ':%s///g<Left><Left><Left>')
 
 ---- escape to enter normal mode in te
 map('t', '<ESC>', '<C-\\><C-n>gg')

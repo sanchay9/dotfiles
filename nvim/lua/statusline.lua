@@ -9,8 +9,9 @@ gl.short_line_list = { "NvimTree", "vista", "dbui", "packer" }
 
 local colors = {
     -- alt_bg = "#202328",
-    alt_bg = "#2a2f38",
+    -- alt_bg = "#2a2f38",
     grey = "#858585",
+    white = "#D8DEE9",
     blue = "#569CD6",
     green = "#608B4E",
     yellow = "#DCDCAA",
@@ -31,10 +32,10 @@ table.insert(gls.left, {
             local mode_color = {
                 n = colors.blue,
                 i = colors.green,
-                v = colors.purple,
-                [""] = colors.purple,
-                V = colors.purple,
-                c = colors.magenta,
+                v = colors.yellow,
+                [""] = colors.yellow,
+                V = colors.yellow,
+                c = colors.red,
                 no = colors.blue,
                 s = colors.orange,
                 S = colors.orange,
@@ -54,7 +55,7 @@ table.insert(gls.left, {
                 "hi GalaxyViMode guifg = " .. mode_color[vim.fn.mode()])
             return "█"
         end,
-        separator = "  ",
+        separator = "   ",
         separator_highlight = { "NONE", colors.alt_bg },
         highlight = { "NONE", colors.alt_bg },
         left_padding = 0
@@ -62,12 +63,21 @@ table.insert(gls.left, {
 })
 
 table.insert(gls.left, {
+    FileIcon = {
+        provider = "FileIcon",
+        condition = condition.buffer_not_empty,
+        separator_highlight = { "NONE", colors.alt_bg },
+        highlight = { colors.white, colors.alt_bg }
+    },
+})
+
+table.insert(gls.left, {
     FileName = {
         provider = "FileName",
         condition = condition.buffer_not_empty,
-        separator = " ",
+        separator = "  ",
         separator_highlight = { "NONE", colors.alt_bg },
-        highlight = { colors.cyan, colors.alt_bg, 'bold' }
+        highlight = { colors.white, colors.alt_bg }
     },
 })
 
@@ -99,7 +109,7 @@ table.insert(gls.left, {
         provider = "GitBranch",
         condition = condition.check_git_workspace,
         separator_highlight = { "NONE", colors.alt_bg },
-        highlight = { colors.magenta, colors.alt_bg, 'bold' },
+        highlight = { colors.cyan, colors.alt_bg },
     },
 })
 
@@ -197,13 +207,18 @@ table.insert(gls.right, {
 --         highlight = { colors.green, colors.alt_bg },
 --     },
 -- })
+table.insert(gls.right, {
+    percenticon = {
+      provider = function() end,
+      separator = "",
+      separator_highlight = { colors.grey, colors.alt_bg },
+   },
+})
 
 table.insert(gls.right, {
     PerCent = {
         provider = "LinePercent",
-        separator = " ",
-        separator_highlight = { "NONE", colors.alt_bg },
-        highlight = { colors.grey, colors.alt_bg, 'bold' },
+        highlight = { colors.grey, colors.alt_bg },
     },
 })
 

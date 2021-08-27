@@ -17,16 +17,20 @@ vim.g.mapleader = ' '
 local execute = vim.api.nvim_command
 
 ---- include files
-require('options')
-require('mappings')
-require('colorschemes')
-require('statusline')
-require('autopair')
-require('lspcpp')
-require('gitsig')
+require 'options'
+require 'mappings'
+require 'colorschemes'
+require 'statusline'
+require 'autopair'
+require 'lspcpp'
+require 'gitsig'
+require 'telescop'
+require 'treesitter'
+require 'nvimtree'
+
+require 'colorizer'.setup()
 
 vim.cmd[[packadd packer.nvim]]
-
 
 -------------------------------------------------------- PLUGINS SETUP -----------------------------------------------------------
 
@@ -36,11 +40,16 @@ vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
 vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
 vim.g.UltiSnipsEditSplit = 'vertical'
 
+---- indent-blankline
+-- vim.g.indent_blankline_char = '┊'   --'▏', '┊', '|', '¦', '┆'
+vim.g.indent_blankline_filetype_exclude = { 'help', 'packer', 'markdown', 'txt', 'startify' }
+vim.g.indent_blankline_buftype_exclude = { 'terminal', 'nofile'}
+
 ---- vimwiki
 vim.g.vimwiki_list = { { path = '~/Documents/vimwiki', syntax = 'markdown', ext = '.md' } }
 
 ---- floaterm
-vim.g.floaterm_borderchars = '─│─│╭╮╯╰' -- '─│─│┌┐┘└'
+vim.g.floaterm_borderchars = '─│─│┌┐┘└' --'─│─│╭╮╯╰' --
 vim.g.floaterm_title = ''
 vim.g.floaterm_autoinsert = 1
 vim.g.floaterm_width = 0.7
@@ -60,45 +69,22 @@ vim.g.startify_lists = {
     { type = 'commands', header = {'     Bookmarks'} },
 }
 vim.g.startify_custom_header = {
-[[                                            _           ]],
-[[                      _ __   ___  _____   _(_)_ __ ___  ]],
-[[                     | '_ \ / _ \/ _ \ \ / / | '_ ` _ \ ]],
-[[                     | | | |  __/ (_) \ V /| | | | | | |]],
-[[                     |_| |_|\___|\___/ \_/ |_|_| |_| |_|]],
+[[                                          _           ]],
+[[                    _ __   ___  _____   _(_)_ __ ___  ]],
+[[                   | '_ \ / _ \/ _ \ \ / / | '_ ` _ \ ]],
+[[                   | | | |  __/ (_) \ V /| | | | | | |]],
+[[                   |_| |_|\___|\___/ \_/ |_|_| |_| |_|]],
 [[]],
 [[]],
 }
 vim.cmd[[autocmd User Startified setlocal cursorline]]
 
----- telescope
-require('telescope').setup { defaults = {
-        scroll_strategy = 'cycle',
-        layout_config = {
-            horizontal = {
-                mirror = false,
-                preview_width = 0.5,
-            },
-            vertical = {
-                mirror = false,
-            },
-        },
-    }
-}
-
----- treesitter
-require 'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained",
-    highlight = {
-        enable = true,
-    },
-}
 
 ----------------------------------------------------------- OTHERS ---------------------------------------------------------------
 
 vim.cmd[[autocmd BufWritePre * %s/\s\+$//e]]                        -- remove trailing whitespaces
--- vim.cmd[[autocmd BufWritePre * %s/\n\+\%$//e]]                      -- remove trailing nl
-vim.cmd[[autocmd FocusGained * checktime]]                         -- reload files on focus gains
--- vim.cmd[[autocmd VimEnter * :silent exec "!kill -s SIGWINCH $PPID"]]
+vim.cmd[[autocmd BufWritePre * %s/\n\+\%$//e]]                      -- remove trailing nl
+vim.cmd[[autocmd FocusGained * checktime]]                          -- reload files on focus gains
 
 ---- remember last position
 vim.cmd[[autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'| exe "normal! g`\""| endif]]
