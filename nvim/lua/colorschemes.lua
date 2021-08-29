@@ -43,6 +43,10 @@ catppuccino.setup(
 				}
 			},
 			gitsigns = true,
+            nvimtree = {
+                enabled = true,
+                show_root = true,
+            },
 			telescope = true,
 			indent_blankline = true,
 		}

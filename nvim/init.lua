@@ -26,7 +26,6 @@ require 'lspcpp'
 require 'gitsig'
 require 'telescop'
 require 'treesitter'
-require 'nvimtree'
 
 require 'colorizer'.setup()
 
@@ -76,6 +75,8 @@ vim.g.startify_custom_header = {
 [[                   |_| |_|\___|\___/ \_/ |_|_| |_| |_|]],
 [[]],
 [[]],
+[[]],
+[[]],
 }
 vim.cmd[[autocmd User Startified setlocal cursorline]]
 
@@ -92,6 +93,7 @@ vim.cmd[[autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") &
 ---- abbreviations
 vim.cmd[[iabbrev itn int]]
 vim.cmd[[iabbrev icn cin]]
+vim.cmd[[iabbrev cotu cout]]
 
 -- highlight on yank
 vim.api.nvim_exec([[

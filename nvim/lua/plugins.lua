@@ -40,7 +40,6 @@ return require('packer').startup({
         use 'SirVer/ultisnips'
 
         -- qol
-        use 'kyazdani42/nvim-tree.lua'
         use 'windwp/nvim-autopairs'
         use 'tpope/vim-commentary'
         use 'tpope/vim-surround'

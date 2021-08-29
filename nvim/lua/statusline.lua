@@ -81,16 +81,16 @@ table.insert(gls.left, {
     },
 })
 
-table.insert(gls.left, {
-    OpenBrace = {
-        provider = function()
-            return "("
-        end,
-        condition = condition.check_git_workspace,
-        separator_highlight = { "NONE", colors.alt_bg },
-        highlight = { colors.grey, colors.alt_bg },
-    },
-})
+-- table.insert(gls.left, {
+--     OpenBrace = {
+--         provider = function()
+--             return "("
+--         end,
+--         condition = condition.check_git_workspace,
+--         separator_highlight = { "NONE", colors.alt_bg },
+--         highlight = { colors.grey, colors.alt_bg },
+--     },
+-- })
 
 table.insert(gls.left, {
     GitIcon = {
@@ -113,17 +113,18 @@ table.insert(gls.left, {
     },
 })
 
-table.insert(gls.left, {
-    CloseBrace = {
-        provider = function()
-            return ")"
-        end,
-        condition = condition.check_git_workspace,
-        separator = " ",
-        separator_highlight = { "NONE", colors.alt_bg },
-        highlight = { colors.grey, colors.alt_bg },
-    },
-})
+-- table.insert(gls.left, {
+--     CloseBrace = {
+--         provider = function()
+--             return ")"
+--         end,
+--         condition = condition.check_git_workspace,
+--         separator = " ",
+--         separator_highlight = { "NONE", colors.alt_bg },
+--         highlight = { colors.grey, colors.alt_bg },
+--     },
+-- })
+
 table.insert(gls.left, {
     DiffAdd = {
         provider = "DiffAdd",
@@ -210,7 +211,7 @@ table.insert(gls.right, {
 table.insert(gls.right, {
     percenticon = {
       provider = function() end,
-      separator = "",
+      separator = " ",
       separator_highlight = { colors.grey, colors.alt_bg },
    },
 })

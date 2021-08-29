@@ -36,9 +36,12 @@ map('n', '<leader>q', 'ggVGp <ESC>:wincmd h<CR>')
 map('n', '<leader>y', 'ggVGccc')
 map('n', '<leader>,', '<CMD> wa | SClose | cd ~ | Startify<CR>')
 map('n', '<leader>u', '<CMD> UndotreeToggle | UndotreeShow<CR>')
+map('n', '<leader>f', '<CMD> Telescope fd<CR>')
+map('n', '<leader>g', '<CMD> Telescope live_grep<CR>')
+map('n', '<leader>c', '<CMD> Telescope command_history<CR>')
 
-map('n', '<C-n>', '<CMD> NvimTreeToggle<CR>')
-map('n', '<leader>n', '<CMD> NvimTreeFindFile<CR>')
+-- map('n', '<C-n>', '<CMD> NvimTreeToggle<CR>')
+-- map('n', '<leader>n', '<CMD> NvimTreeFindFile<CR>')
 
 map('n', '<leader>/', '<CMD> noh<CR>')
 map('n', '<leader>py', '<CMD> wa | FloatermNew python3<CR>')
@@ -55,8 +58,3 @@ map('t', '<ESC>', '<C-\\><C-n>gg')
 
 map('n', '<F1>', '<CMD> luafile ~/.config/nvim/lua/colorschemes.lua<CR>')
 map('n', '<F2>', '<CMD> hi Normal guibg=none | hi FloatermBorder guifg=#61AFEF | hi LineNr guibg=none<CR>')
-
----- Telescope
-map('n', '<leader>f', '<CMD> Telescope fd<CR>')
-map('n', '<leader>g', '<CMD> Telescope live_grep<CR>')
-map('n', '<leader>c', '<CMD> Telescope command_history<CR>')
