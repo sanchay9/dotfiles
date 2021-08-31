@@ -7,9 +7,6 @@ end
 -- do nothing on space
 map('n', '<Space>', '')
 
--- yank until eol with Y
-map('n', 'Y', 'y$')
-
 ---- c++ compile and run
 map('n', '<leader><leader>', '<CMD> wa | FloatermNew g++ -std=c++17 -O2 -DLOCAL -Wall -Wextra -Wshadow -D_GLIBCXX_DEBUG % && ./a.out <Input>Output<CR>')
 
@@ -39,6 +36,8 @@ map('n', '<leader>u', '<CMD> UndotreeToggle | UndotreeShow<CR>')
 map('n', '<leader>f', '<CMD> Telescope fd<CR>')
 map('n', '<leader>g', '<CMD> Telescope live_grep<CR>')
 map('n', '<leader>c', '<CMD> Telescope command_history<CR>')
+map('n', '<leader>z', '<CMD> ZenMode<CR>')
+map('n', '<C-w>', '<CMD> q<CR>')
 
 -- map('n', '<C-n>', '<CMD> NvimTreeToggle<CR>')
 -- map('n', '<leader>n', '<CMD> NvimTreeFindFile<CR>')
@@ -56,5 +55,6 @@ map('n', 'S', ':%s///g<Left><Left><Left>')
 ---- escape to enter normal mode in te
 map('t', '<ESC>', '<C-\\><C-n>gg')
 
-map('n', '<F1>', '<CMD> luafile ~/.config/nvim/lua/colorschemes.lua<CR>')
-map('n', '<F2>', '<CMD> hi Normal guibg=none | hi FloatermBorder guifg=#61AFEF | hi LineNr guibg=none<CR>')
+---- transparency
+map('n', '<F1>', '<CMD> luafile ~/.config/nvim/lua/colors.lua<CR>')
+map('n', '<F2>', '<CMD> hi Normal guibg=none | hi FloatermBorder guifg=#61AFEF | hi LineNr guibg=none | hi clear CursorLine<CR>')

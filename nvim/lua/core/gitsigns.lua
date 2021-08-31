@@ -17,12 +17,12 @@ gitsigns.setup {
         },
         delete = {
             hl = "DiffDelete",
-            text = "-",
+            text = "契",
             numhl = "GitSignsDeleteNr"
         },
         topdelete = {
             hl = "DiffDelete",
-            text = "‾",
+            text = "契",
             numhl = "GitSignsDeleteNr"
         },
         changedelete = {

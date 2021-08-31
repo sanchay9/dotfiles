@@ -40,3 +40,18 @@ opt('o', 'wildignore', '*.exe,*.ini')                 -- ignore files
 
 -- custom options for .cpp
 vim.cmd([[autocmd BufRead,BufNewFile *.cpp :setlocal rnu foldmarker=using\ ll,#endif foldmethod=marker ]])
+
+---- remember last position
+vim.cmd[[autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'| exe "normal! g`\""| endif]]
+
+vim.cmd[[autocmd BufWritePre * %s/\s\+$//e]]                        -- remove trailing whitespaces
+vim.cmd[[autocmd BufWritePre * %s/\n\+\%$//e]]                      -- remove trailing nl
+vim.cmd[[autocmd FocusGained * checktime]]                          -- reload files on focus gains
+
+-- highlight on yank
+vim.api.nvim_exec([[
+    augroup YankHighlight
+        autocmd!
+        autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+    augroup end
+]], false)
