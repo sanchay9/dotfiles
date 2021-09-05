@@ -1,3 +1,12 @@
--- vim.g.indent_blankline_char = '┊'   --'▏', '┊', '|', '¦', '┆'
-vim.g.indent_blankline_filetype_exclude = { 'help', 'packer', 'markdown', 'txt', 'startify' }
-vim.g.indent_blankline_buftype_exclude = { 'terminal', 'nofile'}
+vim.opt.listchars = {
+    eol = "↴",
+    tab = "   ",
+}
+
+require("indent_blankline").setup {
+    -- enabled = false,
+    char = "|",  --'▏', '┊', '|', '¦', '┆'
+    buftype_exclude = { "terminal", "nofile" },
+    filetype_exclude = { 'help', 'packer', 'markdown', 'txt', 'startify' },
+    bufname_exclude = { 'Input', 'Output' },
+}

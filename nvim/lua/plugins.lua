@@ -21,7 +21,6 @@ return require('packer').startup({function()
 
     -- lsp
     use 'neovim/nvim-lspconfig'
-    use {'lewis6991/impatient.nvim', rocks = 'mpack'}
 
     -- telescope
     use 'nvim-lua/popup.nvim'
@@ -58,6 +57,7 @@ return require('packer').startup({function()
     use 'lukas-reineke/indent-blankline.nvim'
     use 'norcalli/nvim-colorizer.lua'
     use 'seblj/nvim-tabline'
+    use {'lewis6991/impatient.nvim', rocks = 'mpack'}
 
     -- git
     use 'tpope/vim-fugitive'

@@ -172,6 +172,7 @@ table.insert(gls.right, {
         highlight = { colors.red, colors.alt_bg },
     },
 })
+
 table.insert(gls.right, {
     DiagnosticWarn = {
         provider = "DiagnosticWarn",

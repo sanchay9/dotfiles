@@ -19,7 +19,6 @@ require 'plugins'
 require 'mappings'
 require 'colors'
 
-
 ---- abbreviations
 vim.cmd[[iabbrev itn int]]
 vim.cmd[[iabbrev icn cin]]
