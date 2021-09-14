@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+    "name": "MinTab",
+    "version": "1.0",
+
+    "icons": {
+        "64": "img/icon.png"
+    },
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    },
+    "permissions": ["storage"]
+}
