@@ -1,3 +1,1 @@
 # dotfiles
-
-![code](shot.png)
