@@ -113,10 +113,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
-  ["nvim-tabline"] = {
-    loaded = true,
-    path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/nvim-tabline"
-  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"

@@ -9,7 +9,6 @@ require 'core.ultisnips'
 require 'core.indentline'
 require 'core.vimwiki'
 require 'core.telescope'
-require 'core.tabline'
 require 'core.zenmode'
 require 'core.twilight'
 require 'core.nvimtree'
@@ -56,7 +55,6 @@ return require('packer').startup({function()
     use 'NTBBloodbath/galaxyline.nvim'
     use 'lukas-reineke/indent-blankline.nvim'
     use 'norcalli/nvim-colorizer.lua'
-    use 'seblj/nvim-tabline'
     use { 'lewis6991/impatient.nvim', rocks = 'mpack' }
     use 'kyazdani42/nvim-tree.lua'
 

@@ -19,12 +19,3 @@ bg("FloatermNC", "#E06C75")
 
 bg("Folded", "bg")
 fbg("EndOfBuffer", "bg", "bg")
-
-fbg("TabLineSel", "#D8DEE9", "bg")
-fbg("TabLineSeparatorActive", "#61AFEF", "bg")
-bg("TabLineFill", "black")
-fbg("TabLineCloseActive", "#D8DEE9", "bg")
-fbg("TabLineModifiedSeparatorActive", "#E06C75", "bg")
-
-
--- yellow = "#e7c787",
