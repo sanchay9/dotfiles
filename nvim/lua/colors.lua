@@ -21,9 +21,8 @@ vim.g.sonokai_style = 'atlantis'
 
 vim.g.gruvbox_material_background = 'hard'
 
-local catppuccino = require("catppuccino")
-catppuccino.setup( {
-    colorscheme = "catppuccino",
+require("catppuccino").setup( {
+    colorscheme = "dark_catppuccino",
     transparency = false,
     styles = {
         comments = "italic",
@@ -36,11 +35,17 @@ catppuccino.setup( {
         treesitter = true,
         native_lsp = {
             enabled = true,
-            styles = {
+            virtual_text = {
                 errors = "italic",
                 hints = "italic",
                 warnings = "italic",
-                information = "italic"
+                information = "italic",
+            },
+            underlines = {
+                errors = "underline",
+                hints = "underline",
+                warnings = "underline",
+                information = "underline",
             }
         },
         gitsigns = true,
@@ -49,7 +54,10 @@ catppuccino.setup( {
             show_root = true,
         },
         telescope = true,
-        indent_blankline = true,
+        indent_blankline = {
+            enabled = true,
+            colored_indent_levels = false,
+        },
     }
 })
 
@@ -80,7 +88,7 @@ require('material').setup({
 })
 
 ---- set colorscheme (order is important)
-vim.cmd 'colorscheme material'
+vim.cmd 'colorscheme catppuccino'
 
 
 ---- highlights
@@ -93,7 +101,8 @@ fbg("EndOfBuffer", "bg", "bg")
 
 fbg("TabLineSel", "#D8DEE9", "bg")
 fbg("TabLineSeparatorActive", "#61AFEF", "bg")
-bg("TabLineFill", "#192227")
+-- bg("TabLineFill", "#192227")
+bg("TabLineFill", "#141F25")
 fbg("TabLineCloseActive", "#D8DEE9", "bg")
 fbg("TabLineModifiedSeparatorActive", "#E06C75", "bg")
 

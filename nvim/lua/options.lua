@@ -24,7 +24,7 @@ opt('o', 'mouse', 'a')                                -- enable mouse usage
 opt('o', 'termguicolors', true)                       -- colors in terminal
 opt('o', 'background', 'dark')                        -- set background light/dark
 opt('o', 'updatetime', 300)                           -- fast updates (default 4000)
-opt('w', 'cursorline', true)                          -- cursorline
+-- opt('w', 'cursorline', true)                          -- cursorline
 
 -- splits
 opt('o', 'splitbelow', true)                          -- open splits below

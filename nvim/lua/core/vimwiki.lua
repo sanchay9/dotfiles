@@ -1,5 +1,5 @@
 vim.g.vimwiki_list = { {
-    path = '~/Docs/vimwiki',
+    path = '~/docs/vimwiki',
     syntax = 'markdown',
     ext = '.md'
 } }

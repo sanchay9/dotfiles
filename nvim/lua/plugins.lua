@@ -3,7 +3,7 @@ require 'core.autopair'
 require 'core.lspcpp'
 require 'core.gitsigns'
 require 'core.treesitter'
-require 'core.startify'
+require 'core.alpha'
 require 'core.floaterm'
 require 'core.ultisnips'
 require 'core.indentline'
@@ -12,6 +12,7 @@ require 'core.telescope'
 require 'core.tabline'
 require 'core.zenmode'
 require 'core.twilight'
+require 'core.nvimtree'
 
 require 'colorizer'.setup()
 
@@ -34,7 +35,7 @@ return require('packer').startup({function()
     use 'Pocco81/Catppuccino.nvim'
 
     -- startify
-    use 'mhinz/vim-startify'
+    use 'goolord/alpha-nvim'
 
     -- floating terminal
     use 'voldikss/vim-floaterm'
@@ -50,17 +51,16 @@ return require('packer').startup({function()
     use 'tpope/vim-commentary'
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
-    use 'mbbill/undotree'
     use 'dstein64/vim-startuptime'
     use 'kyazdani42/nvim-web-devicons'
-    use 'glepnir/galaxyline.nvim'
+    use 'NTBBloodbath/galaxyline.nvim'
     use 'lukas-reineke/indent-blankline.nvim'
     use 'norcalli/nvim-colorizer.lua'
     use 'seblj/nvim-tabline'
-    use {'lewis6991/impatient.nvim', rocks = 'mpack'}
+    use { 'lewis6991/impatient.nvim', rocks = 'mpack' }
+    use 'kyazdani42/nvim-tree.lua'
 
     -- git
-    use 'tpope/vim-fugitive'
     use 'lewis6991/gitsigns.nvim'
 
     -- note taking

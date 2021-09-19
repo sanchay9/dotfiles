@@ -53,7 +53,7 @@ table.insert(gls.left, {
             }
             vim.api.nvim_command(
                 "hi GalaxyViMode guifg = " .. mode_color[vim.fn.mode()])
-            return "▊"
+            return "█"
         end,
         separator = "   ",
         separator_highlight = { "NONE", colors.alt_bg },
@@ -100,7 +100,7 @@ table.insert(gls.left, {
         condition = condition.check_git_workspace,
         separator = " ",
         separator_highlight = { "NONE", colors.alt_bg },
-        highlight = { colors.orange, colors.alt_bg },
+        highlight = { colors.grey, colors.alt_bg },
     },
 })
 
@@ -110,7 +110,7 @@ table.insert(gls.left, {
         condition = condition.check_git_workspace,
         separator = " ",
         separator_highlight = { "NONE", colors.alt_bg },
-        highlight = { colors.cyan, colors.alt_bg },
+        highlight = { colors.grey, colors.alt_bg },
     },
 })
 

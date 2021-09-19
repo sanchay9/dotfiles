@@ -10,13 +10,21 @@ map('n', '<Space>', '')
 ---- c++ compile and run
 map('n', '<leader><leader>', '<CMD> wa | FloatermNew g++ -std=c++17 -O2 -DLOCAL -Wall -Wextra -Wshadow -D_GLIBCXX_DEBUG % && ./a.out <Input>Output<CR>')
 
----- better window movements
 map('n', '<leader>h', '<CMD> wincmd h<CR>')
 map('n', '<leader>j', '<CMD> wincmd j<CR>')
 map('n', '<leader>k', '<CMD> wincmd k<CR>')
 map('n', '<leader>l', '<CMD> wincmd l<CR>')
 
----- file movements
+map('n', '<M-k>', "<CMD> m -2<CR>")
+map('n', '<M-j>', "<CMD> m +1<CR>")
+map('n', '<M-h>', "<<")
+map('n', '<M-l>', ">>")
+
+map('v', '<M-k>', ":m '<-2<CR>gv")
+map('v', '<M-j>', ":m '>+1<CR>gv")
+map('v', '<M-h>', "<gv")
+map('v', '<M-l>', ">gv")
+
 map('n', '<leader>1', '<CMD> e A.cpp<CR>')
 map('n', '<leader>2', '<CMD> e B.cpp<CR>')
 map('n', '<leader>3', '<CMD> e C.cpp<CR>')
@@ -30,17 +38,14 @@ map('n', '<leader>0', '<C-w>o', { silent = true })
 
 map('n', '<leader>a', 'ggVG')
 map('n', '<leader>q', 'ggVGp <ESC>:wincmd h<CR>')
-map('n', '<leader>y', 'ggVGccc')
-map('n', '<leader>,', '<CMD> wa | SClose | cd ~ | Startify<CR>')
-map('n', '<leader>u', '<CMD> UndotreeToggle | UndotreeShow<CR>')
+map('n', '<leader>n', 'ggVGccc')
+map('n', '<leader>,', '<CMD> wa | cd ~ | Alpha<CR>')
 map('n', '<leader>f', '<CMD> Telescope fd<CR>')
 map('n', '<leader>g', '<CMD> Telescope live_grep<CR>')
 map('n', '<leader>c', '<CMD> Telescope command_history<CR>')
 map('n', '<leader>z', '<CMD> ZenMode<CR>')
 map('n', '<C-w>', '<CMD> q<CR>')
-
--- map('n', '<C-n>', '<CMD> NvimTreeToggle<CR>')
--- map('n', '<leader>n', '<CMD> NvimTreeFindFile<CR>')
+map('n', '<C-n>', '<CMD> NvimTreeToggle<CR>')
 
 map('n', '<leader>/', '<CMD> noh<CR>')
 map('n', '<leader>py', '<CMD> wa | FloatermNew python3<CR>')

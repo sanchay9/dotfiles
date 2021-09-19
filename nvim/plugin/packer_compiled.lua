@@ -73,6 +73,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/Catppuccino.nvim"
   },
+  ["alpha-nvim"] = {
+    loaded = true,
+    path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/alpha-nvim"
+  },
   ["galaxyline.nvim"] = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
@@ -113,6 +117,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/nvim-tabline"
   },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
@@ -149,10 +157,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/ultisnips"
   },
-  undotree = {
-    loaded = true,
-    path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/undotree"
-  },
   ["vim-commentary"] = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/vim-commentary"
@@ -161,17 +165,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/vim-floaterm"
   },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/vim-fugitive"
-  },
   ["vim-repeat"] = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/vim-repeat"
-  },
-  ["vim-startify"] = {
-    loaded = true,
-    path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/vim-startify"
   },
   ["vim-startuptime"] = {
     loaded = true,

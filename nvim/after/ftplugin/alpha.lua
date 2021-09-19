@@ -1,4 +1,5 @@
 vim.opt.showtabline = 0
+
 vim.cmd([[
 augroup NoTabline
 au!
