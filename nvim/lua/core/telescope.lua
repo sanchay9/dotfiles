@@ -1,36 +1,36 @@
 require('telescope').setup { defaults = {
     vimgrep_arguments = {
-      'rg',
-      '--color=never',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case'
+        'rg',
+        '--color=never',
+        '--no-heading',
+        '--with-filename',
+        '--line-number',
+        '--column',
+        '--smart-case'
     },
-    prompt_prefix = "  ",
-    selection_caret = " ",
+    prompt_prefix = "   ",
+    selection_caret = "> ",
     entry_prefix = "  ",
     initial_mode = "insert",
     selection_strategy = "reset",
     sorting_strategy = "descending",
     layout_strategy = "horizontal",
     layout_config = {
-      horizontal = {
-        mirror = false,
-        preview_width = 0.5,
-      },
-      vertical = {
-        mirror = false,
-      },
+        horizontal = {
+            mirror = false,
+            preview_width = 0.5,
+        },
+        vertical = {
+            mirror = false,
+        },
     },
     file_sorter =  require'telescope.sorters'.get_fuzzy_file,
     file_ignore_patterns = {},
     generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
     winblend = 0,
     border = {},
-    borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
-    -- borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+    -- borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+    borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
     color_devicons = true,
     use_less = true,
     path_display = {},
@@ -41,5 +41,5 @@ require('telescope').setup { defaults = {
 
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
-  }
+}
 }

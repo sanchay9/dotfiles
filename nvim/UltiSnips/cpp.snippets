@@ -35,9 +35,11 @@ FOR(i, 0, m) {
 $0
 endsnippet
 
-snippet vec "Vector"
-vector<${1:pi}> a${2:(n)};
-$0
+snippet vi "Vector"
+vector<${1:int}> a${0:(n)};
+endsnippet
+snippet vpi "Vector of Pair"
+vector<pair<${1:int}, $1> > ${0:a(n)};
 endsnippet
 snippet set "Set"
 set<${1:int}> ${0:st};
@@ -45,21 +47,15 @@ endsnippet
 snippet map "Map"
 map<${1:int}, ${2:int}> ${0:m};
 endsnippet
-snippet mset "Multiset"
-multiset<${1:int}> ${0:st};
-endsnippet
-snippet mmap "Multimap"
-multimap<${1:int}, ${2:int}> ${0:m};
-endsnippet
 snippet pq "Priority Queue"
-priority_queue<${1:pi}, vector<$1>, greater<$1> > ${0:pq};
+priority_queue<${1:pair<int, int>}, vector<$1>, greater<$1> > ${0:pq};
 endsnippet
 
 snippet F "FOR Loop"
-FOR($1)
+FOR($1
 endsnippet
 snippet R "ROF Loop"
-ROF($1)
+ROF($1
 endsnippet
 snippet trav "For Each Loop"
 for (auto &${1:x} : ${2:a}) {
@@ -124,26 +120,14 @@ using namespace std;
 
 using ll = long long;
 using db = long double;
-using vi = vector<int>;
-using vl = vector<ll>;
-using pi = pair<int, int>;
-using pl = pair<ll, ll>;
-
-template<typename T> using pqg = priority_queue<T, vector<T>, greater<T> >;
 
 #define FOR(i, a, n) for(int i=(a); i<(n); ++i)
 #define ROF(i, a, n) for(int i=(n)-1; i>=(a); --i)
-
 #define all(x) (x).begin(), (x).end()
 #define rall(x) (x).rbegin(), (x).rend()
 #define sz(x) int((x).size())
-#define ins insert
-#define pb push_back
 #define fi first
 #define se second
-#define lb lower_bound
-#define ub upper_bound
-#define endl '\n'
 
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 

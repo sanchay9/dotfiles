@@ -11,9 +11,9 @@ ll sqrrt(ll n) {
 }
 endsnippet
 snippet zfun "Z-Function"
-vi zFunc(string &s) {
+vector<int> zFunc(string &s) {
 	int n = sz(s), l = 0, r = 0;
-	vi z(n);
+	vector<int> z(n);
 
 	FOR(i, 1, n) {
 		if (i <= r)
@@ -27,9 +27,9 @@ vi zFunc(string &s) {
 }
 endsnippet
 snippet preffun "Prefix Function"
-vi prefFunc(string &s) {
+vector<int> prefFunc(string &s) {
 	int n = sz(s);
-	vi pi(n);
+	vector<int> pi(n);
 
 	FOR(i, 1, n) {
 		int j = pi[i - 1];
@@ -71,13 +71,13 @@ endsnippet
 snippet dsu "Disjoint Set Union"
 struct DSU {
 	int n;
-	vector<vi> graph;
-	vi label, SZ; //comp of each vertex, size of each comp
+	vector<vector<int>> graph;
+	vector<int> label, SZ; //comp of each vertex, size of each comp
 
 	void init(int _n) {
 		n = _n;
-		graph = vector<vi> (n);
-		label = SZ = vi (n);
+		graph = vector<vector<int>> (n);
+		label = SZ = vector<int> (n);
 		FOR(i, 0, n) {
 			SZ[i] = 1; label[i] = i;
 		}

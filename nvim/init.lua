@@ -12,10 +12,8 @@
 vim.g.mapleader = ' '
 
 require 'impatient'
-
----- include files
-require 'options'
 require 'plugins'
+require 'options'
 require 'mappings'
 require 'colors'
 

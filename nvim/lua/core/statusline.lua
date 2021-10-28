@@ -65,16 +65,15 @@ table.insert(gls.left, {
 table.insert(gls.left, {
     FileIcon = {
         provider = "FileIcon",
-        condition = condition.buffer_not_empty,
         separator_highlight = { "NONE", colors.alt_bg },
-        highlight = { colors.white, colors.alt_bg }
+        condition = condition.buffer_not_empty,
+        highlight = { require("galaxyline.providers.fileinfo").get_file_icon_color, colors.alt_bg }
     },
 })
 
 table.insert(gls.left, {
     FileName = {
         provider = "FileName",
-        condition = condition.buffer_not_empty,
         separator = "  ",
         separator_highlight = { "NONE", colors.alt_bg },
         highlight = { colors.white, colors.alt_bg }

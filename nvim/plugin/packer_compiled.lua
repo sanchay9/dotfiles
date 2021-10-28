@@ -77,6 +77,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/alpha-nvim"
   },
+  ["cphelper.nvim"] = {
+    loaded = true,
+    path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/cphelper.nvim"
+  },
   ["galaxyline.nvim"] = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
@@ -100,10 +104,6 @@ _G.packer_plugins = {
   ["material.nvim"] = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/material.nvim"
-  },
-  ["nvim-autopairs"] = {
-    loaded = true,
-    path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
@@ -133,10 +133,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
-  ["popup.nvim"] = {
-    loaded = true,
-    path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/popup.nvim"
-  },
   sonokai = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/sonokai"
@@ -145,13 +141,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
-  ["twilight.nvim"] = {
-    loaded = true,
-    path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/twilight.nvim"
-  },
   ultisnips = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/ultisnips"
+  },
+  ["vim-be-good"] = {
+    loaded = true,
+    path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/vim-be-good"
   },
   ["vim-commentary"] = {
     loaded = true,
@@ -176,10 +172,6 @@ _G.packer_plugins = {
   vimwiki = {
     loaded = true,
     path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/vimwiki"
-  },
-  ["zen-mode.nvim"] = {
-    loaded = true,
-    path = "/home/sanchay/.local/share/nvim/site/pack/packer/start/zen-mode.nvim"
   }
 }
 

@@ -1,65 +1,62 @@
-function map(mode, lhs, rhs, opts)
-    local options = { noremap = true }
-    if opts then options = vim.tbl_extend('force', options, opts) end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
 -- do nothing on space
-map('n', '<Space>', '')
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 
 ---- c++ compile and run
-map('n', '<leader><leader>', '<CMD> wa | FloatermNew g++ -std=c++17 -O2 -DLOCAL -Wall -Wextra -Wshadow -D_GLIBCXX_DEBUG % && ./a.out <Input>Output<CR>')
+vim.api.nvim_set_keymap('n', '<leader><leader>', '<CMD> wa | FloatermNew g++ -std=c++17 -O2 -DLOCAL -Wall -Wextra -Wshadow -D_GLIBCXX_DEBUG % && ./a.out <Input>Output<CR>', { noremap = true })
 
-map('n', '<leader>h', '<CMD> wincmd h<CR>')
-map('n', '<leader>j', '<CMD> wincmd j<CR>')
-map('n', '<leader>k', '<CMD> wincmd k<CR>')
-map('n', '<leader>l', '<CMD> wincmd l<CR>')
+vim.api.nvim_set_keymap('n', '<leader>h', '<CMD> wincmd h<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>j', '<CMD> wincmd j<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>k', '<CMD> wincmd k<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>l', '<CMD> wincmd l<CR>', { noremap = true })
 
-map('n', '<M-k>', "<CMD> m -2<CR>")
-map('n', '<M-j>', "<CMD> m +1<CR>")
-map('n', '<M-h>', "<<")
-map('n', '<M-l>', ">>")
+vim.api.nvim_set_keymap('n', '<M-k>', "<CMD> m -2<CR>", {noremap = true})
+vim.api.nvim_set_keymap('n', '<M-j>', "<CMD> m +1<CR>", {noremap = true})
+vim.api.nvim_set_keymap('n', '<M-h>', "<<", {noremap = true})
+vim.api.nvim_set_keymap('n', '<M-l>', ">>", {noremap = true})
 
-map('v', '<M-k>', ":m '<-2<CR>gv")
-map('v', '<M-j>', ":m '>+1<CR>gv")
-map('v', '<M-h>', "<gv")
-map('v', '<M-l>', ">gv")
+vim.api.nvim_set_keymap('v', '<M-k>', ":m '<-2<CR>gv", {noremap = true})
+vim.api.nvim_set_keymap('v', '<M-j>', ":m '>+1<CR>gv", {noremap = true})
+vim.api.nvim_set_keymap('v', '<M-h>', "<gv", {noremap = true})
+vim.api.nvim_set_keymap('v', '<M-l>', ">gv", {noremap = true})
 
-map('n', '<leader>1', '<CMD> e A.cpp<CR>')
-map('n', '<leader>2', '<CMD> e B.cpp<CR>')
-map('n', '<leader>3', '<CMD> e C.cpp<CR>')
-map('n', '<leader>4', '<CMD> e D.cpp<CR>')
-map('n', '<leader>5', '<CMD> e E.cpp<CR>')
+vim.api.nvim_set_keymap('n', '<leader>1', '<CMD> e A.cpp<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>2', '<CMD> e B.cpp<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>3', '<CMD> e C.cpp<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>4', '<CMD> e D.cpp<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>5', '<CMD> e E.cpp<CR>', {noremap = true})
 
-map('n', '<C-Right>', '<CMD> vertical resize +3<CR>', { silent = true })
-map('n', '<C-Left>', '<CMD> vertical resize -3<CR>', { silent = true })
-map('n', '<leader>9', '<CMD> vs Input | vertical resize 32 | sp Output | wincmd h<CR>', { silent = true })
-map('n', '<leader>0', '<C-w>o', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-Right>', '<CMD> vertical resize +3<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-Left>', '<CMD> vertical resize -3<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>9', '<CMD> vs Input | vertical resize 32 | sp Output | wincmd h<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>0', '<C-w>o', { noremap = true, silent = true })
 
-map('n', '<leader>a', 'ggVG')
-map('n', '<leader>q', 'ggVGp <ESC>:wincmd h<CR>')
-map('n', '<leader>n', 'ggVGccc')
-map('n', '<leader>,', '<CMD> wa | cd ~ | Alpha<CR>')
-map('n', '<leader>f', '<CMD> Telescope fd<CR>')
-map('n', '<leader>g', '<CMD> Telescope live_grep<CR>')
-map('n', '<leader>c', '<CMD> Telescope command_history<CR>')
-map('n', '<leader>z', '<CMD> ZenMode<CR>')
-map('n', '<C-w>', '<CMD> q<CR>')
-map('n', '<C-n>', '<CMD> NvimTreeToggle<CR>')
+vim.api.nvim_set_keymap('n', '<leader>a', 'ggVG', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>q', 'ggVGp <ESC>:wincmd h<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>n', 'ggVGccc', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>,', '<CMD> wa | cd ~ | Alpha<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>f', '<CMD> Telescope fd<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>g', '<CMD> Telescope live_grep<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>c', '<CMD> Telescope command_history<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-n>', '<CMD> NvimTreeToggle<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<F3>', '<CMD> CphGet<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<F4>', '<CMD> w | CphTest<CR>', { noremap = true })
 
-map('n', '<leader>/', '<CMD> noh<CR>')
-map('n', '<leader>py', '<CMD> wa | FloatermNew python3<CR>')
--- map('n', '<leader>o', '<CMD> setlocal spell! spelllang=en_us<CR>') // orthography
+vim.api.nvim_set_keymap('n', '<leader>/', '<CMD> noh<CR>', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<leader>o', '<CMD> setlocal spell! spelllang=en_us<CR>', { noremap = true }) --orthography
 
 ---- run the macro in q register (instead of Ex mode)
-map('n', 'Q', '@q')
+vim.api.nvim_set_keymap('n', 'Q', '@q', { noremap = true })
 
 ---- replace in current file
-map('n', 'S', ':%s///g<Left><Left><Left>')
+vim.api.nvim_set_keymap('n', 'S', ':%s///g<Left><Left><Left>', { noremap = true })
 
 ---- escape to enter normal mode in te
-map('t', '<ESC>', '<C-\\><C-n>gg')
+vim.api.nvim_set_keymap('t', '<ESC>', '<C-\\><C-n>gg', { noremap = true })
 
----- transparency
-map('n', '<F1>', '<CMD> luafile ~/.config/nvim/lua/colors.lua<CR>')
-map('n', '<F2>', '<CMD> hi Normal guibg=none | hi FloatermBorder guifg=#61AFEF | hi LineNr guibg=none | hi clear CursorLine<CR>')
+vim.api.nvim_set_keymap('n', '<F1>', '<CMD> luafile ~/.config/nvim/lua/colors.lua<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<F2>', '<CMD> hi Normal guibg=none | hi FloatermBorder guifg=#61AFEF | hi LineNr guibg=none | hi clear CursorLine<CR>', { noremap = true })
+
+-- map('i', '{', '{}<Left>')
+vim.api.nvim_set_keymap('i', '{<CR>', '{<CR>}<Esc>O', { noremap = true })
+-- map('i', '{{', '{')
+-- map('i', '{}', '{}')

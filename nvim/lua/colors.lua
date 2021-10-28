@@ -58,6 +58,7 @@ require("catppuccino").setup( {
             enabled = true,
             colored_indent_levels = false,
         },
+        floaterm = true
     }
 })
 
@@ -88,40 +89,16 @@ require('material').setup({
 })
 
 ---- set colorscheme (order is important)
-vim.cmd 'colorscheme catppuccino'
+vim.cmd 'colorscheme gruvbox-material'
 
 
----- highlights
+---- custom highlights
 
 fbg("FloatermBorder", "none", "none")
+fbg("TelescopeSelection", "#00A1F1", "none")
+fbg("TelescopeSelectionCaret", "white", "none")
 bg("FloatermNC", "#E06C75")
+bg("Floaterm", "#3c3836")
 
 bg("Folded", "bg")
 fbg("EndOfBuffer", "bg", "bg")
-
-fbg("TabLineSel", "#D8DEE9", "bg")
-fbg("TabLineSeparatorActive", "#61AFEF", "bg")
--- bg("TabLineFill", "#192227")
-bg("TabLineFill", "#141F25")
-fbg("TabLineCloseActive", "#D8DEE9", "bg")
-fbg("TabLineModifiedSeparatorActive", "#E06C75", "bg")
-
-
-
-
--- TabLine
--- TabLineSel
--- TabLineFill
--- TabLineSeparatorActive
--- TabLineSeparatorInactive
--- TabLineModifiedSeparatorActive
--- TabLineModifiedSeparatorInactive
--- TabLinePaddingActive
--- TabLinePaddingInactive
--- TabLineModifiedActive
--- TabLineModifiedInactive
--- TabLineCloseActive
--- TabLineCloseInactive
-
-
--- yellow = "#e7c787",

@@ -14,7 +14,7 @@ opt('b', 'expandtab', true)                           -- use spaces instead of t
 
 opt('w', 'number', true)                              -- line numbers
 opt('w', 'wrap', false)                               -- no line wrap
-opt('o', 'scrolloff', 2)                              -- centered cursor
+opt('o', 'scrolloff', 7)                              -- centered cursor
 opt('b', 'undofile', true)                            -- persistant undo
 opt('b', 'swapfile', false)                           -- no swap files
 opt('o', 'clipboard', 'unnamedplus')                      -- enable copy paste
@@ -23,8 +23,8 @@ opt('o', 'showmode', false)                           -- hide mode
 opt('o', 'mouse', 'a')                                -- enable mouse usage
 opt('o', 'termguicolors', true)                       -- colors in terminal
 opt('o', 'background', 'dark')                        -- set background light/dark
-opt('o', 'updatetime', 300)                           -- fast updates (default 4000)
--- opt('w', 'cursorline', true)                          -- cursorline
+opt('o', 'updatetime', 250)                           -- fast updates (default 4000)
+opt('w', 'cursorline', true)                          -- cursorline
 
 -- splits
 opt('o', 'splitbelow', true)                          -- open splits below
@@ -39,7 +39,7 @@ opt('o', 'wildmode', 'longest:full,full')             -- first tab shows longest
 opt('o', 'wildignore', '*.exe,*.ini')                 -- ignore files
 
 -- custom options for .cpp
-vim.cmd([[autocmd BufRead,BufNewFile *.cpp :setlocal rnu foldmarker=using\ ll,#endif foldmethod=marker ]])
+vim.cmd([[autocmd BufRead,BufNewFile *.cpp :setlocal foldmarker=using\ ll,#endif foldmethod=marker ]])
 
 ---- remember last position
 vim.cmd[[autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'| exe "normal! g`\""| endif]]
@@ -55,3 +55,28 @@ vim.api.nvim_exec([[
         autocmd TextYankPost * silent! lua vim.highlight.on_yank()
     augroup end
 ]], false)
+
+local disabled_built_ins = {
+   "2html_plugin",
+   "getscript",
+   "getscriptPlugin",
+   "gzip",
+   "logipat",
+   "netrw",
+   "netrwPlugin",
+   "netrwSettings",
+   "netrwFileHandlers",
+   "matchit",
+   "tar",
+   "tarPlugin",
+   "rrhelper",
+   "spellfile_plugin",
+   "vimball",
+   "vimballPlugin",
+   "zip",
+   "zipPlugin",
+}
+
+for _, plugin in pairs(disabled_built_ins) do
+   vim.g["loaded_" .. plugin] = 1
+end
