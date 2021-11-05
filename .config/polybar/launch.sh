@@ -9,4 +9,4 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch polybar
-polybar main -c /home/sanchay/.config/polybar/config.ini &
+polybar main -c ~/.config/polybar/config.ini &
