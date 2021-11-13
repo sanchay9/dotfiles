@@ -1,21 +1,20 @@
-require 'core.statusline'
--- require 'core.autopair'
-require 'core.gitsigns'
-require 'core.treesitter'
-require 'core.alpha'
-require 'core.floaterm'
-require 'core.ultisnips'
-require 'core.indentline'
-require 'core.vimwiki'
-require 'core.nvimtree'
-require 'core.lspconfig'
-require 'core.telescope'
+require 'plugins.statusline'
+-- require 'plugins.autopair'
+require 'plugins.gitsigns'
+require 'plugins.treesitter'
+require 'plugins.alpha'
+require 'plugins.floaterm'
+require 'plugins.ultisnips'
+require 'plugins.indentline'
+require 'plugins.vimwiki'
+require 'plugins.nvimtree'
+require 'plugins.lspconfig'
+require 'plugins.telescope'
 
+local use = require('packer').use
 return require('packer').startup({function()
-    -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     use 'dstein64/vim-startuptime'
-    use { 'lewis6991/impatient.nvim', rocks = 'mpack' }
 
     use 'neovim/nvim-lspconfig'
 
@@ -45,6 +44,7 @@ return require('packer').startup({function()
 
     use 'sanchay9/cphelper.nvim'
     use 'ThePrimeagen/vim-be-good'
+    use 'github/copilot.vim'
 end,
 config = {
     display = {

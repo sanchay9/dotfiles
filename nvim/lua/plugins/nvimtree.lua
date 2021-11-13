@@ -41,10 +41,8 @@ require'nvim-tree'.setup {
 vim.g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
 vim.g.nvim_tree_allow_resize = 1
 vim.g.nvim_tree_auto_ignore_ft = { "startify", "dashboard" } -- empty by default, don't auto open tree on specific filetypes.
-vim.g.nvim_tree_ignore = { ".git", "node_modules", ".cache" }
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_gitignore = 1
-vim.g.nvim_tree_hide_dotfiles = 0
 vim.g.nvim_tree_highlight_opened_files = 0
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_quit_on_open = 0 -- closes tree when file's opened

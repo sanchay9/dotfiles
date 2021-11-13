@@ -21,46 +21,46 @@ vim.g.sonokai_style = 'atlantis'
 
 vim.g.gruvbox_material_background = 'hard'
 
-require("catppuccino").setup( {
-    colorscheme = "dark_catppuccino",
-    transparency = false,
-    styles = {
-        comments = "italic",
-        functions = "NONE",
-        keywords = "italic",
-        strings = "NONE",
-        variables = "NONE",
-    },
-    integrations = {
-        treesitter = true,
-        native_lsp = {
-            enabled = true,
-            virtual_text = {
-                errors = "italic",
-                hints = "italic",
-                warnings = "italic",
-                information = "italic",
-            },
-            underlines = {
-                errors = "underline",
-                hints = "underline",
-                warnings = "underline",
-                information = "underline",
-            }
-        },
-        gitsigns = true,
-        nvimtree = {
-            enabled = true,
-            show_root = true,
-        },
-        telescope = true,
-        indent_blankline = {
-            enabled = true,
-            colored_indent_levels = false,
-        },
-        floaterm = true
-    }
-})
+-- require("catppuccino").setup( {
+--     colorscheme = "dark_catppuccino",
+--     transparency = false,
+--     styles = {
+--         comments = "italic",
+--         functions = "NONE",
+--         keywords = "italic",
+--         strings = "NONE",
+--         variables = "NONE",
+--     },
+--     integrations = {
+--         treesitter = true,
+--         native_lsp = {
+--             enabled = true,
+--             virtual_text = {
+--                 errors = "italic",
+--                 hints = "italic",
+--                 warnings = "italic",
+--                 information = "italic",
+--             },
+--             underlines = {
+--                 errors = "underline",
+--                 hints = "underline",
+--                 warnings = "underline",
+--                 information = "underline",
+--             }
+--         },
+--         gitsigns = true,
+--         nvimtree = {
+--             enabled = true,
+--             show_root = true,
+--         },
+--         telescope = true,
+--         indent_blankline = {
+--             enabled = true,
+--             colored_indent_levels = false,
+--         },
+--         floaterm = true
+--     }
+-- })
 
 -- -- darker lighter oceanic palenight deep ocean
 vim.g.material_style = 'oceanic'
@@ -99,6 +99,7 @@ fbg("TelescopeSelection", "#00A1F1", "none")
 fbg("TelescopeSelectionCaret", "white", "none")
 bg("FloatermNC", "#E06C75")
 bg("Floaterm", "#3c3836")
+fg("CopilotSuggestion", "#555555")
 
 bg("Folded", "bg")
 fbg("EndOfBuffer", "bg", "bg")

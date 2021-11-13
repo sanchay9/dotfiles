@@ -11,7 +11,6 @@
 ---- map leader to space
 vim.g.mapleader = ' '
 
-require 'impatient'
 require 'plugins'
 require 'options'
 require 'mappings'
