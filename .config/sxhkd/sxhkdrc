@@ -1,34 +1,17 @@
-# wm independent hotkeys
-
-super + Return
-    $TERMINAL
-
-super + shift + Return
-    google-chrome-stable
-
-super + space
-    rofi -show drun
-
-super + shift + space
-    ~/.config/scripts/google
-
-# make sxhkd reload its configuration files:
-super + alt + q
-	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded Config'
-
 ################## bspwm hotkeys
 
-# quit/restart bspwm
-# super + alt + {q,r}
-# 	bspc {quit,wm -r}
 super + alt + r
-    bspc wm -r
+    bspc wm -r; notify-send 'bspwm' 'Reloaded Config'
+super + alt + t
+    pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded Config'
+super + alt + y
+    ~/.config/polybar/launch.sh; notify-send 'polybar' 'Reloaded Config'
 
 # close and kill
-# super + {_,shift + }q
-# 	bspc node -{c,k}
 super + shift + q
     bspc node -c
+super + alt + q
+    bspc node -k
 
 # alternate between the tiled and monocle layout
 super + m
@@ -63,16 +46,16 @@ super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
-super + {_,shift + }c
-	bspc node -f {next,prev}.local.!hidden.window
+super + grave
+	bspc node -f next.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
-super + {grave,Tab}
-	bspc {desktop,node} -f last
+super + Tab
+	bspc node -f last
 
 # focus the older or newer node in the focus history
 super + {o,i}
@@ -117,40 +100,61 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 
-#################### additional
+#################### wm independent hotkeys
 
-super + e
-    thunar
+super + Return
+    $TERMINAL
 
-alt + F4
-    ~/.config/scripts/powermenu &
+super + d
+    $TERMINAL -e nvim ~/docs/vimwiki/index.md
+
+super + shift + Return
+    ~/.config/scripts/ocr.sh
+
+super + c
+    google-chrome-beta --force-device-scale-factor=1.1 %U --profile-directory="Default"
+
+super + shift + space
+    rofi -show drun
 
 super + v
     $TERMINAL -e nvim
 
+super + n
+    kitty --start-as fullscreen -e ncmpcpp
+
+alt + control + Delete
+    kitty --start-as fullscreen -e htop
+
+super + e
+    QT_QPA_PLATFORMTHEME=qt5ct dolphin
+
+alt + F4
+    eww open-many blur poweroff restart log_out lock greet cross
+
 Print
-    flameshot gui -p ~/Pictures/Screenshots
+    flameshot gui -p ~/pix/Screenshots
 
 super + Print
-    flameshot full -p ~/Pictures/Screenshots
+    flameshot full -c -p ~/pix/Screenshots
 
-XF86MonBrightnessUp
-    light -A 1 && notify-send "Brightness" "$(light | cut -d. -f1)%"
-XF86MonBrightnessDown
-    light -U 1 && notify-send "Brightness" "$(light | cut -d. -f1)%"
+XF86MonBrightness{Up,Down}
+    brightnessctl s {+5%,5%-} && notify-send -h string:x-dunst-stack-tag:brightness "Brightness" -h int:value:"`echo $(($(brightnessctl g)*100/255))`"
+XF86Audio{Raise,Lower}Volume
+    pactl set-sink-volume @DEFAULT_SINK@ {+,-}1% && dunstify -h string:x-dunst-stack-tag:audio "Volume" -h int:value:"`pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'`"
 
-XF86AudioPlay
-    playerctl play-pause
-XF86AudioNext
-    playerctl next
-XF86AudioPrev
-    playerctl previous
-
-XF86AudioRaiseVolume
-    pactl set-sink-volume @DEFAULT_SINK@ +1% && notify-send "Volume" "$(pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')%"
-XF86AudioLowerVolume
-    pactl set-sink-volume @DEFAULT_SINK@ -1% && notify-send "Volume" "$(pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')%"
 XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 XF86AudioMicMute
     pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+XF86Audio{Play,Next,Prev}
+    playerctl {play-pause,next,previous}
+super + {F8,F9,F10}
+    mpc {prev,toggle,next}
+
+super + space
+    dunstctl close
+
+ctrl + grave
+    dunstctl history-pop
