@@ -5,18 +5,12 @@
 --      |__|___|  /__||__| /\ |____/____/(____  /
 --              \/         \/                 \/
 
-
 ----------------------------------------------------------------------------------------------------------------------------------
 
 ---- map leader to space
 vim.g.mapleader = ' '
 
-require 'plugins'
-require 'options'
-require 'mappings'
-require 'colors'
-
----- abbreviations
-vim.cmd[[iabbrev itn int]]
-vim.cmd[[iabbrev icn cin]]
-vim.cmd[[iabbrev cotu cout]]
+require "options"
+require "autocmds"
+require "mappings"
+require "plugins"

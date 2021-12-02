@@ -233,10 +233,10 @@ table.insert(gls.right, {
 --     },
 -- })
 
-table.insert(gls.short_line_left, {
-    SFileName = {
-        provider = "SFileName",
-        condition = condition.buffer_not_empty,
-        highlight = { colors.grey, colors.alt_bg },
-    },
-})
+-- table.insert(gls.short_line_left, {
+--     SFileName = {
+--         provider = "SFileName",
+--         condition = condition.buffer_not_empty,
+--         highlight = { colors.grey, colors.alt_bg },
+--     },
+-- })

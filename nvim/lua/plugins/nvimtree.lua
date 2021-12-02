@@ -1,9 +1,13 @@
--- following options are the default
-require'nvim-tree'.setup {
+local present, nvimtree = pcall(require, "nvim-tree")
+if not present then
+    return
+end
+
+nvimtree.setup {
     disable_netrw       = true,
     hijack_netrw        = false,
     open_on_setup       = false,
-    ignore_ft_on_setup  = {},
+    ignore_ft_on_setup  = { "alpha" },
     auto_close          = false,
     open_on_tab         = false,
     hijack_cursor       = false,
@@ -28,16 +32,10 @@ require'nvim-tree'.setup {
     view = {
         width = 25,
         side = 'left',
-        auto_resize = false,
-        mappings = {
-            -- custom only false will merge the list with the default mappings
-            -- if true, it will only use your list to set the mappings
-            custom_only = false,
-            -- list of mappings to set on the tree manually
-            list = {}
-        }
+        auto_resize = true,
     }
 }
+
 vim.g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
 vim.g.nvim_tree_allow_resize = 1
 vim.g.nvim_tree_auto_ignore_ft = { "startify", "dashboard" } -- empty by default, don't auto open tree on specific filetypes.

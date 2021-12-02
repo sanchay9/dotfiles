@@ -1,7 +1,7 @@
-vim.fn.sign_define("LspDiagnosticsSignError", {texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError"})
-vim.fn.sign_define("LspDiagnosticsSignWarning", {texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning"})
-vim.fn.sign_define("LspDiagnosticsSignHint", {texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint"})
-vim.fn.sign_define("LspDiagnosticsSignInformation", {texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation"})
+vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignHint", { text = " ", texthl = "DiagnosticSignHint" })
+vim.fn.sign_define("DiagnosticSignInformation", { text = " ", texthl = "DiagnosticSignInfo" })
 
 -- Use an on_attach function to only map the following keys after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -24,25 +24,43 @@ local on_attach = function(client, bufnr)
     -- buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     -- buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-    buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-    buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-    -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+    buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+    buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+    buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+    -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
     -- buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-    -- vim.api.nvim_command('autocmd CursorHold,CursorHoldI <buffer> lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})')
+
+    -- vim.cmd([[
+    --     autocmd CursorHold <buffer> lua vim.diagnostic.open_float(nil, {focusable = false, close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" }})
+    -- ]])
+
+    -- highlight the current variable and its usages in the buffer
+    if client.resolved_capabilities.document_highlight then
+        vim.cmd([[
+            hi link LspReferenceRead Visual
+            hi link LspReferenceText Visual
+            hi link LspReferenceWrite Visual
+            augroup lsp_document_highlight
+                autocmd! * <buffer>
+                autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+                autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+            augroup END
+        ]])
+    end
 end
 
-require'lspconfig'.ccls.setup {
+require'lspconfig'.clangd.setup {
     on_attach = on_attach,
     flags = {
-        debounce_text_changes = 150,
+        debounce_text_changes = 500,
     }
 }
 
-local sumneko_binary_path = vim.fn.exepath('lua-language-server')
+local sumneko_binary_path = vim.fn.exepath("lua-language-server")
 local sumneko_root_path = vim.fn.fnamemodify(sumneko_binary_path, ':h:h:h')
 
 require'lspconfig'.sumneko_lua.setup {
+    on_attach = on_attach,
     cmd = {sumneko_binary_path, "-E", sumneko_root_path .. "/main.lua"};
     settings = {
         Lua = {
@@ -66,16 +84,26 @@ require'lspconfig'.sumneko_lua.setup {
             },
         },
     },
-    on_attach = on_attach,
 }
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+vim.diagnostic.config({
+    underline = false,
     -- virtual_text = {
     --    prefix = "",
     --    spacing = 0,
     -- },
     virtual_text = false,
     signs = true,
-    underline = true,
-    update_in_insert = false,
+    severity_sort = true,
 })
+
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+--     -- virtual_text = {
+--     --    prefix = "",
+--     --    spacing = 0,
+--     -- },
+--     underline = false,
+--     virtual_text = false,
+--     signs = true,
+--     update_in_insert = false,
+-- })
