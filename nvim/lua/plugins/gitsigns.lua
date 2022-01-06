@@ -5,31 +5,11 @@ end
 
 gitsigns.setup {
     signs = {
-        add = {
-            hl = "DiffAdd",
-            text = "▎",
-            numhl = "GitSignsAddNr"
-        },
-        change = {
-            hl = "DiffChange",
-            text = "▎",
-            numhl = "GitSignsChangeNr"
-        },
-        delete = {
-            hl = "DiffDelete",
-            text = "▎",
-            numhl = "GitSignsDeleteNr"
-        },
-        topdelete = {
-            hl = "DiffDelete",
-            text = "▎",
-            numhl = "GitSignsDeleteNr"
-        },
-        changedelete = {
-            hl = "DiffChange",
-            text = "▎",
-            numhl = "GitSignsChangeNr"
-        }
+        add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
+        change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
+        delete = { hl = "DiffDelete", text = "_", numhl = "GitSignsDeleteNr" },
+        topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
+        changedelete = { hl = "DiffChange", text = "~", numhl = "GitSignsChangeNr" }
     },
     numhl = false,
     linehl = false,
@@ -39,7 +19,7 @@ gitsigns.setup {
         buffer = true,
     },
     watch_gitdir = {
-        interval = 1000
+        interval = 500
     },
     sign_priority = 6,
     update_debounce = 200,

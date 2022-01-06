@@ -1,4 +1,4 @@
-vim.g.curr_theme = "gruvchad"
+vim.g.curr_theme = "chadracula"
 
 local M = {}
 

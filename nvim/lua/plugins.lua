@@ -8,8 +8,12 @@ end
 
 local use = packer.use
 return packer.startup({function()
-    use 'nvim-lua/plenary.nvim'
-    use "kazhala/close-buffers.nvim"
+    use "nathom/filetype.nvim"
+
+    use {
+        "nvim-lua/plenary.nvim",
+        module = "plenary"
+    }
 
     use {
         "wbthomason/packer.nvim",
@@ -33,8 +37,7 @@ return packer.startup({function()
     }
 
     use {
-        "NTBBloodbath/galaxyline.nvim",
-        -- 'nvim-lualine/lualine.nvim',
+        'nvim-lualine/lualine.nvim',
         after = "nvim-web-devicons",
         config = function()
             require "plugins.statusline"
@@ -59,7 +62,7 @@ return packer.startup({function()
 
     use {
         "norcalli/nvim-colorizer.lua",
-        event = "BufRead"
+        cmd = "ColorizerAttachToBuffer",
     }
 
     use {
@@ -67,7 +70,12 @@ return packer.startup({function()
         event = "BufRead",
         run = ":TSUpdate",
         config = function()
-            require "plugins.treesitter"
+            require'nvim-treesitter.configs'.setup {
+                ensure_installed = "maintained",
+                highlight = {
+                    enable = true,
+                },
+            }
         end
     }
 
@@ -91,7 +99,9 @@ return packer.startup({function()
     use {
         "SirVer/ultisnips",
         config = function()
-            require "plugins.ultisnips"
+            vim.g.UltiSnipsExpandTrigger = '<tab>'
+            vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
+            vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
         end
     }
 
@@ -128,9 +138,6 @@ return packer.startup({function()
                 "nvim-telescope/telescope-fzf-native.nvim",
                 run = "make",
             },
-            {
-                "sanchay9/telescope-colorscheme-live",
-            },
         },
         config = function()
             require "plugins.telescope"
@@ -139,8 +146,8 @@ return packer.startup({function()
 
     use {
         "tpope/vim-commentary",
+        keys = { "gc" },
         requires = {{ "tpope/vim-repeat" }},
-        event = "BufRead",
     }
 
     use {
@@ -157,26 +164,62 @@ return packer.startup({function()
         "voldikss/vim-floaterm",
         cmd = "FloatermNew",
         config = function()
-            require "plugins.floaterm"
+            vim.g.floaterm_borderchars = '        ' -- '─│─│┌┐┘└' --'─│─│╭╮╯╰' --
+            vim.g.floaterm_title = ''
+            vim.g.floaterm_autoinsert = 1
+            vim.g.floaterm_width = 0.7
+            vim.g.floaterm_height = 0.5
         end
     }
 
     use {
         "vimwiki/vimwiki",
-        event = "BufRead",
+        ft = "markdown",
         config = function()
-            require "plugins.vimwiki"
+            vim.g.vimwiki_list = { { path = '~/docs/vimwiki', syntax = 'markdown', ext = '.md' } }
         end
     }
 
     use {
         "sanchay9/cphelper.nvim",
-        after = "vim-floaterm"
+        cmd = { "CphGet", "CphTest" },
     }
 
     use {
         "sanchay9/vim-be-good",
         cmd = "VimBeGood",
+    }
+
+    use {
+        "mbbill/undotree",
+        cmd = "UndotreeToggle",
+        config = function()
+            vim.g.undotree_SetFocusWhenToggle = 1
+        end
+    }
+
+    use {
+        "wfxr/minimap.vim",
+        cmd = "MinimapToggle",
+        config = function()
+            vim.g.minimap_width = 14
+            vim.g.minimap_git_colors = 1
+        end
+    }
+
+    use {
+        "kazhala/close-buffers.nvim",
+        cmd = "BDelete",
+    }
+
+    use {
+        "instant-markdown/vim-instant-markdown",
+        cmd = "InstantMarkdownPreview",
+        config = function()
+            -- vim.g.instant_markdown_slow = 1
+            vim.g.instant_markdown_autostart = 0
+            vim.g.instant_markdown_browser = "google-chrome-beta --new-window --app=http://localhost:8090"
+        end
     }
 end,
 config = {

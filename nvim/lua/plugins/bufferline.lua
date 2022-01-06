@@ -7,7 +7,10 @@ end
 
 bufferline.setup {
     options = {
-        offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+        offsets = {
+            { filetype = "NvimTree", text = "", padding = 1 },
+            { filetype = "undotree", text = "", padding = 1 },
+        },
         buffer_close_icon = "",
         modified_icon = "",
         close_icon = "",
@@ -16,14 +19,14 @@ bufferline.setup {
         right_trunc_marker = "",
         max_name_length = 14,
         max_prefix_length = 13,
-        tab_size = 20,
+        tab_size = 18,
         show_tab_indicators = true,
         enforce_regular_tabs = false,
         view = "multiwindow",
         show_buffer_close_icons = true,
         separator_style = "thin",
         always_show_bufferline = true,
-        diagnostics = false, -- "or nvim_lsp"
+        diagnostics = false,
         custom_filter = function(buf_number)
             -- Func to filter out our managed/persistent split terms
             local present_type, type = pcall(function()

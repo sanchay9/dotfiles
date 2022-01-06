@@ -72,7 +72,7 @@ snippet dsu "Disjoint Set Union"
 struct DSU {
 	int n;
 	vector<vector<int>> graph;
-	vector<int> label, SZ; //comp of each vertex, size of each comp
+	vector<int> label, SZ;
 
 	void init(int _n) {
 		n = _n;
@@ -93,8 +93,8 @@ struct DSU {
 	void merge(int a, int b) {
 		if (label[a] == label[b]) return;
 
-		graph[a].pb(b);
-		graph[b].pb(a);
+		graph[a].push_back(b);
+		graph[b].push_back(a);
 
 		if (SZ[label[a]] > SZ[label[b]]) swap(a, b); //assume SZ[label[a]] <= SZ[label[b]]
 

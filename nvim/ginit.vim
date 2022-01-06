@@ -1,4 +1,5 @@
 " Set Editor Font
+" GuiFont! FiraCode Nerd Font Mono:h16
 GuiFont! FiraCode Nerd Font Mono:h16
 
 " Disable GUI Tabline

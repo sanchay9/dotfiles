@@ -1,14 +1,11 @@
--- Define fg color
 local function fg(group, color)
     vim.cmd("hi! " .. group .. " guifg=" .. color)
 end
 
--- Define bg color
 local function bg(group, color)
     vim.cmd("hi! " .. group .. " guibg=" .. color)
 end
 
--- Define bg and fg color
 local function fbg(group, fgcol, bgcol)
     vim.cmd("hi! " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
 end
@@ -34,9 +31,13 @@ local white = colors.white
 local yellow = colors.yellow
 local one_bg3 = colors.one_bg3
 
+-- fg("Delimiter", white)
+
+bg("MatchParen", "none" .. " gui=underline")
+
 -- fg("CopilotSuggestion", "#555555")
 
-bg("Folded", black)
+bg("Folded", black .. " gui=italic")
 fg("cursorlinenr", white)
 
 -- same it bg, so it doesn't appear
@@ -44,21 +45,18 @@ fg("EndOfBuffer", black)
 
 -- For floating windows
 fg("FloatBorder", blue)
-bg("NormalFloat", one_bg)
+bg("NormalFloat", darker_black)
 
 -- Pmenu
 bg("Pmenu", one_bg)
 bg("PmenuSbar", one_bg2)
 bg("PmenuSel", pmenu_bg)
 bg("PmenuThumb", nord_blue)
-fg("CmpItemAbbr", white)
-fg("CmpItemAbbrMatch", white)
-fg("CmpItemKind", white)
-fg("CmpItemMenu", white)
 
 -- inactive statuslines as thin lines
 fg("StatusLineNC", one_bg3 .. " gui=underline")
 
+fg("Comment", grey_fg .. " gui=italic")
 fg("LineNr", grey)
 fg("NvimInternalError", red)
 fg("VertSplit", one_bg2)
@@ -78,9 +76,11 @@ bg("Floaterm", darker_black)
 fbg("FloatermBorder", "none", "none")
 
 -- Git signs
-fbg("DiffAdd", nord_blue, "none")
-fbg("DiffChange", grey_fg, "none")
-fbg("DiffModified", nord_blue, "none")
+fbg("DiffAdd", blue, "NONE")
+fbg("DiffChange", grey_fg, "NONE")
+fbg("DiffChangeDelete", red, "NONE")
+fbg("DiffModified", red, "NONE")
+fbg("DiffDelete", red, "NONE")
 
 -- Indent blankline plugin
 fg("IndentBlanklineChar", line)
@@ -104,7 +104,7 @@ fg("DiagnosticVirtualTextHint", purple)
 fg("DiagnosticFloatingHint", purple)
 
 -- NvimTree
-fg("NvimTreeEmptyFolderName", blue)
+fg("NvimTreeEmptyFolderName", folder_bg)
 fg("NvimTreeEndOfBuffer", darker_black)
 fg("NvimTreeFolderIcon", folder_bg)
 fg("NvimTreeFolderName", folder_bg)
@@ -112,7 +112,7 @@ fg("NvimTreeGitDirty", red)
 fg("NvimTreeIndentMarker", one_bg2)
 bg("NvimTreeNormal", darker_black)
 bg("NvimTreeNormalNC", darker_black)
-fg("NvimTreeOpenedFolderName", blue)
+fg("NvimTreeOpenedFolderName", folder_bg)
 fg("NvimTreeRootFolder", red .. " gui=underline") -- enable underline for root folder in nvim tree
 fbg("NvimTreeStatuslineNc", darker_black, darker_black)
 fg("NvimTreeVertSplit", darker_black)
@@ -120,9 +120,18 @@ bg("NvimTreeVertSplit", darker_black)
 fbg("NvimTreeWindowPicker", red, black2)
 
 -- Telescope
-fg("TelescopeBorder", one_bg)
-fbg("TelescopePreviewTitle", green, one_bg)
-fbg("TelescopePromptTitle", blue, one_bg)
-fbg("TelescopeResultsTitle", red, one_bg)
-fbg("TelescopeSelection", "#00A1F1", "none")
-fbg("TelescopeSelectionCaret", "white", "none")
+-- fg("TelescopeBorder", one_bg)
+-- fbg("TelescopePreviewTitle", green, one_bg)
+-- fbg("TelescopePromptTitle", blue, one_bg)
+-- fbg("TelescopeResultsTitle", red, one_bg)
+-- fbg("TelescopeSelection", "#00A1F1", "none")
+-- fbg("TelescopeSelectionCaret", "white", "none")
+fbg("TelescopeBorder", darker_black, darker_black)
+fbg("TelescopePromptBorder", black2, black2)
+fbg("TelescopePromptNormal", white, black2)
+fbg("TelescopePromptPrefix", red, black2)
+bg("TelescopeNormal", darker_black)
+fbg("TelescopePreviewTitle", black, green)
+fbg("TelescopePromptTitle", black, red)
+fbg("TelescopeResultsTitle", darker_black, darker_black)
+bg("TelescopeSelection", black2)
