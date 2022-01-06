@@ -1,0 +1,223 @@
+snippet re "Read Inputs" b
+$1 $2; cin >> ${2/, / >> /g};
+$0
+endsnippet
+snippet rea "Read Array"
+FOR(i, 0, n) cin >> ${1:a}[i];
+$0
+endsnippet
+snippet red "Read Grid"
+FOR(i, 0, n) FOR(j, 0, ${1:m}) {
+	char x; cin >> x;
+	grid[i][j] = x == '$2';
+}
+
+$0
+endsnippet
+snippet reg "Read Graph"
+FOR(i, 0, m) {
+	int u, v; cin >> u >> v;
+	--u; --v;
+	adj[u].pb(v);
+	adj[v].pb(u);
+}
+
+$0
+endsnippet
+snippet rewg "Read Weighted Graph"
+FOR(i, 0, m) {
+	int u, v, w; cin >> u >> v >> w;
+	--u; --v;
+	adj[u].pb({v, w});
+	adj[v].pb({u, w});
+}
+
+$0
+endsnippet
+
+snippet vi "Vector"
+vector<${1:int}> a${0:(n)};
+endsnippet
+snippet vpi "Vector of Pair"
+vector<pair<${1:int}, $1> > ${0:a(n)};
+endsnippet
+snippet set "Set"
+set<${1:int}> ${0:st};
+endsnippet
+snippet map "Map"
+map<${1:int}, ${2:int}> ${0:m};
+endsnippet
+snippet pq "Priority Queue"
+priority_queue<${1:pair<int, int>}, vector<$1>, greater<$1> > ${0:pq};
+endsnippet
+
+snippet F "FOR Loop"
+FOR($1
+endsnippet
+snippet R "ROF Loop"
+ROF($1
+endsnippet
+snippet trav "For Each Loop"
+for (auto &${1:x} : ${2:a}) {
+	$0
+}
+endsnippet
+snippet d "Debug"
+dbg($1);
+endsnippet
+
+snippet remdup "Remove Duplicates"
+sort(all(${1:a})); $1.erase(unique(all($1)), $1.end());
+$0
+endsnippet
+snippet setpre "Floating Point Precision"
+cout << fixed << setprecision($1) << $2;
+endsnippet
+snippet memset "Memset"
+memset($1, ${2:-1}, sizeof($1));
+$0
+endsnippet
+snippet emp "Emplace"
+${1:a}.emplace(a.begin() + $2, ${3:value});
+$0
+endsnippet
+snippet nextp "Next Permutation"
+do {
+	$0
+} while (next_permutation(${1:all($2)}));
+endsnippet
+snippet acc "Accumulate"
+ll sum = accumulate(all(${1:a}), 0LL);
+$0
+endsnippet
+snippet pref "Prefix Sum"
+vl pref(${1:n} + 1);
+partial_sum(all(${2:a}), pref.begin() + 1);
+$0
+endsnippet
+snippet grid "For Grid Problems"
+const int dx[4] = {1, 0, -1, 0};
+const int dy[4] = {0, 1, 0, -1};
+string path = "DRUL";
+
+bool ok(int i, int j) {
+	return (i<n and i>=0 and j<m and j>=0);
+}
+$0
+endsnippet
+snippet pbds "Policy Based DS"
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+
+template <typename T> using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+#define oset_find(k) find_by_order(k)
+#define oset_order(k) order_of_key(k)
+endsnippet
+snippet cc "Main"
+#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+using db = long double;
+
+#define FOR(i, a, n) for(ll i=(a); i<(n); ++i)
+#define ROF(i, a, n) for(ll i=(n)-1; i>=(a); --i)
+#define all(x) (x).begin(), (x).end()
+#define rall(x) (x).rbegin(), (x).rend()
+#define sz(x) int((x).size())
+#define fi first
+#define se second
+
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+template<typename T> bool ckmin(T& a, const T& b) { return b < a ? a = b, 1 : 0; }
+template<typename T> bool ckmax(T& a, const T& b) { return a < b ? a = b, 1 : 0; }
+
+#define ts to_string
+string ts(char c) { return string(1, c); }
+string ts(const char* s) { return (string)s; }
+string ts(const string& s) { return '"' + s + '"'; }
+string ts(bool b) { return (b ? "true" : "false"); }
+
+string ts(vector<bool> v) {
+	string res = "{";
+	FOR(i, 0, sz(v))
+		res += char('0' + v[i]);
+	res += "}";
+	return res;
+}
+
+template <size_t SZ> string ts(bitset<SZ> b) {
+	string res;
+	FOR(i, 0, SZ)
+		res += char('0' + b[i]);
+	return res;
+}
+
+template <typename A, typename B> string ts(pair<A, B> p);
+template <typename A> string ts(A v) {
+	bool first = 1; string res = "{";
+	for (const auto& x: v) {
+		if (!first) res += ", ";
+		first = 0; res += ts(x);
+	}
+	res += "}"; return res;
+}
+
+template <typename A, typename B> string ts(pair<A, B> p) {
+	return "(" + ts(p.fi) + ", " + ts(p.se) + ")";
+}
+
+void dbgOut() { cerr << "]" << endl; }
+template <typename H, typename... T> void dbgOut(H h, T... t) {
+	cerr << ts(h); if (sizeof...(t)) cerr << ", ";
+	dbgOut(t...);
+}
+
+#ifdef LOCAL
+	#define dbg(...) cerr << "Line(" << __LINE__ << ") -> [" << #__VA_ARGS__ << "]: [", dbgOut(__VA_ARGS__)
+#else
+	#define dbg(...) 0
+#endif
+
+void solve() {
+	$0
+}
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+
+	${1:int tc; cin >> tc;
+	FOR(tn, 0, tc)
+		// cout << "Case #" << tn + 1 << ": ",
+	    }solve();
+}
+endsnippet
+snippet tim "Execution Time"
+#ifdef LOCAL
+	auto begin = std::chrono::high_resolution_clock::now();
+#endif
+
+#ifdef LOCAL
+	auto end = std::chrono::high_resolution_clock::now();
+	cerr << "\nExecution time: " << std::chrono::duration_cast<std::chrono::duration<double>> (end-begin).count() << " seconds\n";
+#endif
+endsnippet
+snippet chash "Custom Hash"
+struct custom_hash {
+    static uint64_t splitmix64(uint64_t x) {
+        // http://xorshift.di.unimi.it/splitmix64.c
+        x += 0x9e3779b97f4a7c15;
+        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
+        x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
+        return x ^ (x >> 31);
+    }
+
+    size_t operator()(uint64_t x) const {
+        static const uint64_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
+        return splitmix64(x + FIXED_RANDOM);
+    }
+};
+endsnippet
