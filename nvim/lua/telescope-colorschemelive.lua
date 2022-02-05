@@ -83,8 +83,11 @@ end
 
 -- local picker = pickers.new(require"telescope.themes".get_dropdown(), {
 local picker = pickers.new({
-    prompt = "Colorscheme",
-    layout_strategy = "horizontal",
+    prompt_title = "Themes",
+    prompt_prefix = "    ",
+    -- selection_caret = "  ",
+    selection_caret = " ↪ ",
+    -- layout_strategy = "vertical",
     -- layout_config = {
     --     height = 0.9,
     --     width = 0.9,

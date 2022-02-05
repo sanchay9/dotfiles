@@ -5,5 +5,5 @@ vim.opt.listchars = {
 
 vim.g.indent_blankline_char = "▏"  --'▏', '┊', '|', '¦', '┆'
 vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile" }
--- vim.g.indent_blankline_filetype_exclude = { 'help', 'packer', 'markdown', 'txt', 'startify', 'vimwiki' }
+vim.g.indent_blankline_filetype_exclude = { 'gitcommit', 'help', 'packer', 'markdown', 'txt', 'startify', 'vimwiki', 'undotree' }
 vim.g.indent_blankline_bufname_exclude = { 'Input', 'Output' }

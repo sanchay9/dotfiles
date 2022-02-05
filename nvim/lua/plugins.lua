@@ -72,6 +72,9 @@ return packer.startup({function()
         config = function()
             require'nvim-treesitter.configs'.setup {
                 ensure_installed = "maintained",
+                autopairs = {
+                    enable = true,
+                },
                 highlight = {
                     enable = true,
                 },
@@ -97,12 +100,75 @@ return packer.startup({function()
     }
 
     use {
-        "SirVer/ultisnips",
+        "ray-x/lsp_signature.nvim",
+        after = "nvim-lspconfig",
         config = function()
-            vim.g.UltiSnipsExpandTrigger = '<tab>'
-            vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
-            vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
+            require "plugins.lspsignature"
         end
+    }
+
+    use {
+        "hrsh7th/nvim-cmp",
+        event = "InsertEnter",
+        config = function()
+            require "plugins.cmp"
+        end
+    }
+
+    use {
+        "L3MON4D3/LuaSnip",
+        after = "nvim-cmp",
+        config = function()
+            require'luasnip'.config.set_config {
+                history = true,
+                updateevents = "TextChanged,TextChangedI",
+            }
+
+            local types = require("luasnip.util.types")
+
+            require'luasnip'.config.setup({
+                ext_opts = {
+                    [types.choiceNode] = {
+                        active = {
+                            virt_text = {{"●", "DiagnosticInfo"}}
+                        }
+                    },
+                    [types.insertNode] = {
+                        active = {
+                            virt_text = {{"●", "DiagnosticHint"}}
+                        }
+                    }
+                },
+            })
+
+            require("luasnip/loaders/from_snipmate").lazy_load({ paths =  { "~/.config/nvim/snippets" } })
+            require"luasnip".filetype_extend("all", { "_" })
+        end
+    }
+
+    use {
+        "saadparwaiz1/cmp_luasnip",
+        after = "LuaSnip",
+    }
+
+    use {
+        "hrsh7th/cmp-nvim-lua",
+        after = "cmp_luasnip",
+    }
+
+    use {
+        "hrsh7th/cmp-nvim-lsp",
+        after = "cmp-nvim-lua",
+    }
+
+    use {
+        "hrsh7th/cmp-buffer",
+        after = "cmp-nvim-lsp",
+    }
+
+    use {
+        "hrsh7th/cmp-path",
+        after = "cmp-buffer",
     }
 
     use {
@@ -138,6 +204,9 @@ return packer.startup({function()
                 "nvim-telescope/telescope-fzf-native.nvim",
                 run = "make",
             },
+            {
+                "dhruvmanila/telescope-bookmarks.nvim",
+            }
         },
         config = function()
             require "plugins.telescope"
@@ -145,14 +214,17 @@ return packer.startup({function()
     }
 
     use {
-        "tpope/vim-commentary",
-        keys = { "gc" },
-        requires = {{ "tpope/vim-repeat" }},
+        "numToStr/Comment.nvim",
+        keys = { "gc", "gb" },
+        config = function ()
+            require "plugins.comment"
+        end
     }
 
     use {
         "tpope/vim-surround",
         event = "BufRead",
+        requires = {{ "tpope/vim-repeat" }},
     }
 
     use {
@@ -174,20 +246,12 @@ return packer.startup({function()
 
     use {
         "vimwiki/vimwiki",
-        ft = "markdown",
-        config = function()
-            vim.g.vimwiki_list = { { path = '~/docs/vimwiki', syntax = 'markdown', ext = '.md' } }
-        end
+        cmd = "VimwikiIndex",
     }
 
     use {
         "sanchay9/cphelper.nvim",
         cmd = { "CphGet", "CphTest" },
-    }
-
-    use {
-        "sanchay9/vim-be-good",
-        cmd = "VimBeGood",
     }
 
     use {

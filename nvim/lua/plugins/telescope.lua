@@ -15,9 +15,9 @@ telescope.setup {
             '--smart-case'
         },
         prompt_prefix = "    ",
-        -- prompt_prefix = "   ",
-        selection_caret = "  ",
-        entry_prefix = "  ",
+        -- prompt_prefix = "    ",
+        selection_caret = " ↪ ",
+        entry_prefix = "   ",
         initial_mode = "insert",
         selection_strategy = "reset",
         sorting_strategy = "ascending",
@@ -58,8 +58,15 @@ telescope.setup {
             override_file_sorter = true, -- override the file sorter
             case_mode = "smart_case", -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
-        }
+        },
+        bookmarks = {
+            selected_browser = 'chrome',
+            url_open_command = 'xdg-open',
+            url_open_plugin = nil,
+            full_path = true,
+        },
     },
 }
 
 require'telescope'.load_extension('fzf')
+require'telescope'.load_extension('bookmarks')

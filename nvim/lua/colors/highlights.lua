@@ -37,21 +37,34 @@ bg("MatchParen", "none" .. " gui=underline")
 
 -- fg("CopilotSuggestion", "#555555")
 
-bg("Folded", black .. " gui=italic")
+bg("Folded", black)
+
+-- vim.cmd "hi clear CursorLine"
 fg("cursorlinenr", white)
 
 -- same it bg, so it doesn't appear
 fg("EndOfBuffer", black)
-
--- For floating windows
-fg("FloatBorder", blue)
-bg("NormalFloat", darker_black)
 
 -- Pmenu
 bg("Pmenu", one_bg)
 bg("PmenuSbar", one_bg2)
 bg("PmenuSel", pmenu_bg)
 bg("PmenuThumb", nord_blue)
+
+fg("CmpItemAbbr", white)
+fg("CmpItemKind", white)
+fg("CmpItemMenu", white)
+fg("CmpItemAbbrDeprecated", "#808080" .. " gui=strikethrough")
+fg("CmpItemAbbrMatch", "#569CD6")
+fg("CmpItemAbbrMatchFuzzy", "#569CD6")
+fg("CmpItemKindVariable", "#9CDCFE")
+fg("CmpItemKindInterface", "#9CDCFE")
+fg("CmpItemKindText", "#9CDCFE")
+fg("CmpItemKindFunction", "#C586C0")
+fg("CmpItemKindMethod", "#C586C0")
+fg("CmpItemKindKeyword", "#D4D4D4")
+fg("CmpItemKindProperty", "#D4D4D4")
+fg("CmpItemKindUnit", "#D4D4D4")
 
 -- inactive statuslines as thin lines
 fg("StatusLineNC", one_bg3 .. " gui=underline")
@@ -62,6 +75,7 @@ fg("NvimInternalError", red)
 fg("VertSplit", one_bg2)
 
 -- Alpha
+-- TODO: all grey_fg alpha
 math.randomseed(os.time())
 local function random_colours(colours)
    return colours[math.random(1, #colours)]
@@ -69,6 +83,10 @@ end
 
 local colours = { colors.red, colors.green, colors.yellow, colors.blue, colors.magenta, colors.cyan }
 vim.cmd(string.format('highlight AlphaHeader guifg=%s guibg=bg', random_colours(colours)))
+
+-- For floating windows
+fg("FloatBorder", blue)
+bg("NormalFloat", darker_black)
 
 -- Floaterm
 bg("FloatermNC", red)
@@ -104,6 +122,7 @@ fg("DiagnosticVirtualTextHint", purple)
 fg("DiagnosticFloatingHint", purple)
 
 -- NvimTree
+bg("NvimTreeCursorLine", darker_black)
 fg("NvimTreeEmptyFolderName", folder_bg)
 fg("NvimTreeEndOfBuffer", darker_black)
 fg("NvimTreeFolderIcon", folder_bg)
@@ -113,7 +132,7 @@ fg("NvimTreeIndentMarker", one_bg2)
 bg("NvimTreeNormal", darker_black)
 bg("NvimTreeNormalNC", darker_black)
 fg("NvimTreeOpenedFolderName", folder_bg)
-fg("NvimTreeRootFolder", red .. " gui=underline") -- enable underline for root folder in nvim tree
+fg("NvimTreeRootFolder", red .. " gui=underline,bold") -- enable underline for root folder in nvim tree
 fbg("NvimTreeStatuslineNc", darker_black, darker_black)
 fg("NvimTreeVertSplit", darker_black)
 bg("NvimTreeVertSplit", darker_black)

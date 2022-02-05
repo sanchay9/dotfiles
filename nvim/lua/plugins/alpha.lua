@@ -10,21 +10,19 @@ local date = handle:read("*a")
 handle:close()
 
 dashboard.section.header.val = {
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    -- "",
+    -- "Today's " .. date,
     -- "",
     -- "",
- -- "                                          /$$              ",
- --    "                                         |__/              ",
- --    " /$$$$$$$   /$$$$$$   /$$$$$$  /$$    /$$ /$$ /$$$$$$/$$$$ ",
- --    "| $$__  $$ /$$__  $$ /$$__  $$|  $$  /$$/| $$| $$_  $$_  $$",
- --    "| $$  \\ $$| $$$$$$$$| $$  \\ $$ \\  $$/$$/ | $$| $$ \\ $$ \\ $$",
- --    "| $$  | $$| $$_____/| $$  | $$  \\  $$$/  | $$| $$ | $$ | $$",
- --    "| $$  | $$|  $$$$$$$|  $$$$$$/   \\  $/   | $$| $$ | $$ | $$",
- --    "|__/  |__/ \\_______/ \\______/     \\_/    |__/|__/ |__/ |__/",   "",
- --    "",
-    "",
-    "Today's " .. date,
-    "",
-    "",
     -- "",
     -- "",
     -- "",
@@ -52,31 +50,35 @@ local plugins = handle:read("*a")
 handle:close()
 dashboard.section.footer.val = {
     "",
-    "  Neovim loaded " .. plugins .. " plugins"
+    "",
+    "",
+    "",
+    "",
+    "",
+    "  Neovim loaded " .. plugins .. " plugins"
 }
 dashboard.section.footer.opts.hl = "AlphaFooter"
 
 dashboard.section.buttons.val = {
-    -- ﮶ﴬﲉ
-    dashboard.button( 'p',   '  Practice',    ':cd ~/code | e A.cpp<CR>' ),
-    -- dashboard.button( 'w',   '  VimWiki',     ':VimwikiIndex<CR>' ),
-    dashboard.button( 'r',   '  Recents',     ':Telescope oldfiles<CR>' ),
-    dashboard.button( 'l',   '  Templates',   ':cd ~/lib | Telescope fd<CR>' ),
-    dashboard.button( 'm',   '  Manpages',    ':Telescope man_pages<CR>' ),
-    dashboard.button( 'c',   '  Config',      ':cd ~/.config/nvim/ | Telescope fd<CR>' ),
-    dashboard.button( 't',   '  Theme',       ':luafile ~/.config/nvim/lua/telescope-colorschemelive.lua<CR>' ),
-    dashboard.button( 'v',   '  VimBeGood',   ':VimBeGood<CR>' ),
-    -- dashboard.button( 'q',   '  Exit',        ':qa<CR>' ),
+    -- dashboard.button( 'p',   '  Practice',    ':cd ~/code | e A.cpp<CR>' ),
+    -- -- dashboard.button( 'w',   '  VimWiki',     ':VimwikiIndex<CR>' ),
+    -- dashboard.button( 'r',   '  Recents',     ':Telescope oldfiles<CR>' ),
+    -- dashboard.button( 'l',   '  Templates',   ':cd ~/lib | Telescope fd<CR>' ),
+    -- dashboard.button( 'b',   '  Bookmarks',   ':Telescope bookmarks<CR>' ),
+    -- dashboard.button( 'm',   '  Manpages',    ':Telescope man_pages<CR>' ),
+    -- dashboard.button( 'c',   '  Config',      ':cd ~/.config/nvim/ | Telescope fd<CR>' ),
+    -- dashboard.button( 't',   '  Theme',       ':luafile ~/.config/nvim/lua/telescope-colorschemelive.lua<CR>' ),
+    -- -- dashboard.button( 'q',   '  Exit',        ':qa<CR>' ),
 
-    -- dashboard.button( 'p',   '  Practice',    ':cd ~/code | e A.cpp<CR>' ),
-    -- -- dashboard.button( 'w',   'ﴬ  VimWiki',     ':VimwikiIndex<CR>' ),
-    -- dashboard.button( 'r',   '﮶  Recents',     ':Telescope oldfiles<CR>' ),
-    -- dashboard.button( 't',   '  Templates',   ':cd ~/lib | Telescope fd<CR>' ),
-    -- dashboard.button( 'm',   'ﲉ  Manpages',    ':Telescope man_pages<CR>' ),
-    -- dashboard.button( 'c',   '  Config',      ':cd ~/.config/nvim/ | Telescope fd<CR>' ),
-    -- dashboard.button( 'f',   '  Colorscheme', ':luafile ~/.config/nvim/lua/telescope-colorschemelive.lua<CR>' ),
+    --   
+    -- dashboard.button( 'p',   '  Practice',    ':cd ~/code | e A.cpp<CR>' ),
+    dashboard.button( 'w',   '  VimWiki',     ':cd ~/docs/vimwiki | VimwikiIndex<CR>' ),
+    dashboard.button( 'r',   '  Recents',     ':Telescope oldfiles<CR>' ),
+    dashboard.button( 'm',   '  Manpages',    ':Telescope man_pages<CR>' ),
+    dashboard.button( 'c',   '  Config',      ':cd ~/.config/nvim/ | Telescope fd<CR>' ),
+    dashboard.button( 't',   '  Theme', ':luafile ~/.config/nvim/lua/telescope-colorschemelive.lua<CR>' ),
     -- dashboard.button( 'v',   '  VimBeGood',   ':VimBeGood<CR>' ),
-    -- -- dashboard.button( 'q',   '  Exit',        ':qa<CR>' ),
+    -- dashboard.button( 'q',   '  Exit',        ':qa<CR>' ),
 }
 
 alpha.setup(dashboard.opts)

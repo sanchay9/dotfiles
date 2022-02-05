@@ -86,12 +86,40 @@ ins_left {
             ['!'] = colors.blue,
             t = colors.blue,
         }
+        -- local mode_name = {
+        --     n = "正常",
+        --     i = "输入",
+        --     v = "观察",
+        --     [''] = "观察",
+        --     V = "观察",
+        --     c = "编辑",
+        --     no = "正常",
+        --     s = "搜索",
+        --     S = "搜索",
+        --     [''] = "搜索",
+        --     ic = "插入",
+        --     R = "编辑",
+        --     Rv = "编辑",
+        --     cv = "编辑",
+        --     ce = "编辑",
+        --     r = "编辑",
+        --     rm = "编辑",
+        --     ['r?'] = "编辑",
+        --     ['!'] = "编辑",
+        --     t = "编辑",
+        -- }
         vim.api.nvim_command('hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. ' guibg=' .. colors.black)
         return '█'
+        -- if mode_name[vim.fn.mode()] then
+        --     return '█ ' .. mode_name[vim.fn.mode()]
+        -- else
+        --     return '█'
+        -- end
     end,
     color = 'LualineMode',
     padding = { left = 0, right = 0 },
 }
+
 
 ins_left {
     function()
@@ -110,10 +138,11 @@ ins_left {
     function()
         local filename = vim.fn.expand('%:t')
         if vim.fn.empty(filename) == 1 then return '' end
-        if vim.bo.modifiable then
-            if vim.bo.modified then
-                return filename .. ' '
-            end
+        if vim.bo.readonly == true then
+            return filename .. ' '
+        end
+        if vim.bo.modifiable and vim.bo.modified then
+            return filename .. ' '
         end
         return filename .. '  '
     end,
@@ -140,7 +169,8 @@ ins_left {
 ins_left {
     "diff",
     source = diff_source,
-    symbols = { added = "  ", modified = "柳", removed = " " },
+    -- symbols = { added = "  ", modified = "柳", removed = " " },
+    symbols = { added = " ", modified = " ", removed = " " },
     diff_color = {
         added = { fg = colors.grey_fg2 },
         modified = { fg = colors.grey_fg2 },
@@ -151,7 +181,8 @@ ins_left {
 ins_right {
     "diagnostics",
     sources = { "nvim_diagnostic" },
-    symbols = { error = " ", warn = " ", info = " ", hint = " " },
+    -- symbols = { error = " ", warn = " ", info = " ", hint = " " },
+    symbols = { error = " ", warn = " ", info = " ", hint = " " },
     diagnostics_color = {
         color_error = { fg = colors.red },
         color_warn = { fg = colors.yellow },

@@ -27,6 +27,8 @@ vim.opt.cursorline = true
 -- vim.opt.numberwidth = 2                         -- set number column width (default 4)
 -- vim.opt.signcolumn = "yes"
 
+vim.g.vimwiki_list = { { path = '~/docs/vimwiki', syntax = 'markdown', ext = '.md' } }
+
 local disabled_built_ins = {
     "2html_plugin",
     "getscript",
