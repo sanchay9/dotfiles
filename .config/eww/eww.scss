@@ -1,0 +1,27 @@
+.special {
+    all: unset;
+    font-size: 55px;
+    color: #88C0D0;
+    background-color: #272b31;
+}
+
+.special:hover {
+    font-size: 70px;
+    color: #88C;
+}
+
+.blur {
+    background-color: black;
+}
+
+.text {
+    all: unset;
+    font-family: FiraCode Nerd Font Mono;
+    background-color: #272b31;
+    font-size: 60px;
+    color: #88C0D0;
+}
+
+.text:hover {
+    color: #A3BE8C;
+}

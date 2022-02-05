@@ -6,6 +6,8 @@ super + alt + t
     pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded Config'
 super + alt + y
     ~/.config/polybar/launch.sh; notify-send 'polybar' 'Reloaded Config'
+super + alt + u
+    killall dunst; notify-send 'dunst' 'Reloaded Config'
 
 # close and kill
 super + shift + q
@@ -57,12 +59,6 @@ super + bracket{left,right}
 super + Tab
 	bspc node -f last
 
-# focus the older or newer node in the focus history
-super + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
-
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
@@ -105,17 +101,14 @@ super + {Left,Down,Up,Right}
 super + Return
     $TERMINAL
 
-super + d
-    $TERMINAL -e nvim ~/docs/vimwiki/index.md
-
 super + shift + Return
     ~/.config/scripts/ocr.sh
 
 super + c
-    google-chrome-beta --force-device-scale-factor=1.1 %U --profile-directory="Default"
+    google-chrome-beta --force-device-scale-factor=1.2 %U --profile-directory="Default"
 
 super + shift + space
-    rofi -show drun
+    rofi -show drun -theme ~/.config/rofi/small/config.rasi
 
 super + v
     $TERMINAL -e nvim
@@ -124,13 +117,13 @@ super + n
     kitty --start-as fullscreen -e ncmpcpp
 
 alt + control + Delete
-    kitty --start-as fullscreen -e htop
+    kitty --start-as fullscreen -e btop
 
 super + e
     QT_QPA_PLATFORMTHEME=qt5ct dolphin
 
-alt + F4
-    eww open-many blur poweroff restart log_out lock greet cross
+super + shift + Escape
+    ~/.config/eww/launch.sh
 
 Print
     flameshot gui -p ~/pix/Screenshots
@@ -139,22 +132,27 @@ super + Print
     flameshot full -c -p ~/pix/Screenshots
 
 XF86MonBrightness{Up,Down}
-    brightnessctl s {+5%,5%-} && notify-send -h string:x-dunst-stack-tag:brightness "Brightness" -h int:value:"`echo $(($(brightnessctl g)*100/255))`"
-XF86Audio{Raise,Lower}Volume
-    pactl set-sink-volume @DEFAULT_SINK@ {+,-}1% && dunstify -h string:x-dunst-stack-tag:audio "Volume" -h int:value:"`pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'`"
-
-XF86AudioMute
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
-XF86AudioMicMute
-    pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    ~/.config/scripts/dunst-brightness {up,down}
+XF86Audio{RaiseVolume,LowerVolume,Mute,MicMute}
+    ~/.config/scripts/dunst-volume {up,down,mute,micmute}
 
 XF86Audio{Play,Next,Prev}
     playerctl {play-pause,next,previous}
-super + {F8,F9,F10}
-    mpc {prev,toggle,next}
+
+super+ctrl+{Left,Right}
+    mpc {prev,next}
 
 super + space
     dunstctl close
 
 ctrl + grave
     dunstctl history-pop
+
+super + a
+    google-chrome-beta --new-window --app="https://codeforces.com/problemset?order=BY_RATING_ASC&tags=1500-"
+
+super + alt + b
+	polybar-msg cmd toggle; bspc config top_padding {+0,10}
+
+super + i
+    rofi -show emoji -modi run,drun,window,emoji -theme ~/.config/rofi/small/config.rasi

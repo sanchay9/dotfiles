@@ -8,7 +8,7 @@ lock="󰌾  Lock"
 suspend="󰤄  Sleep"
 logout="󰍃  Logout"
 
-chosen="$(echo -e "$logout\n$lock\n$suspend\n$shutdown\n$reboot" | rofi -theme ~/.config/rofi/powermenu.rasi -p "Uptime: $uptime" -dmenu -i -selected-row 0)"
+chosen="$(echo -e "$logout\n$suspend\n$lock\n$shutdown\n$reboot" | rofi -theme ~/.config/rofi/powermenu.rasi -p "Uptime: $uptime" -dmenu -selected-row 2)"
 
 case $chosen in
     $shutdown)
@@ -16,7 +16,7 @@ case $chosen in
     $reboot)
         systemctl reboot ;;
     $lock)
-         betterlockscreen -l ;;
+        ~/.config/lock/lock.sh ;;
     $suspend)
         mpc -q pause
         amixer set Master mute

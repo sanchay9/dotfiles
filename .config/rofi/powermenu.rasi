@@ -1,50 +1,52 @@
 configuration {
     drun-display-format: "{name}";
-    lines: 5;
-    columns: 1;
-	font: "FiraCode Nerd Font Mono 16";
-	show-icons: true;
-	icon-theme: "La Capitaine";
+    font: "FiraCode Nerd Font Mono 16";
 }
 
 * {
-  background-color: #1d2021;
-  border-color: #2e343f;
-  text-color: #8ca0aa;
-  spacing: 0;
-  width: 412px;
+    background-color: #1d2021;
+    border-color: #2e343f;
+    text-color: #8ca0aa;
+    spacing: 0;
+    width: 412px;
+    height: 410px;
 }
 
 inputbar {
-  children: [prompt];
+children: [prompt];
 }
 
 prompt {
-  padding: 20px;
-  border: 0 0 0 0;
+padding: 20px;
+border: 0 0 0 0;
 }
 
 textbox {
-  background-color: #2e343f;
-  border: 0 0 1px 0;
-  border-color: #ffffff;
-  padding: 8px 20;
+    background-color: #2e343f;
+border: 0 0 1px 0;
+        border-color: #ffffff;
+padding: 8px 20;
 }
 
 entry {
-  padding: 20;
+padding: 20;
 }
 
 listview {
-  cycle: true;
-  margin: 0 0 -1px 0;
+cycle: true;
+margin: 0 0 -1px 0;
 }
 
 element {
-  border: 0 0 1px 0;
-  padding: 20;
+border: 0 0 1px 0;
+padding: 20;
 }
 
 element selected {
-  background-color: #2e343f;
+    background-color: #2e343f;
+}
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
 }

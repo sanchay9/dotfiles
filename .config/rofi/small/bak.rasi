@@ -1,0 +1,81 @@
+configuration {
+    font:                 "FiraCode Nerd Font Mono 13";
+    show-icons:           true;
+    display-drun:         "󰊠 ";
+    drun-display-format:  "{name}";
+}
+
+@import "colors.rasi"
+
+window {
+    transparency:      "real";
+    background-color:  @bg;
+    text-color:        @fg;
+    width:             372px;
+    location:          center;
+}
+
+prompt {
+    enabled:           true;
+    background-color:  @transparent;
+    text-color:        @blue;
+    font:              "FiraCode Nerd Font Mono 13";
+}
+
+entry {
+    background-color:   @transparent;
+    text-color:         @fg;
+    placeholder-color:  @fg;
+    placeholder:        "";
+    padding:            0px 0px 0px 8px;
+    blink:              true;
+}
+
+inputbar {
+    children:          [ prompt, entry ];
+    background-color:  @bg-alt;
+    text-color:        @fg;
+    padding:           12px;
+}
+
+listview {
+    background-color:  @transparent;
+    padding:           0px;
+    columns:           1;
+    lines:             6;
+    spacing:           5px;
+    cycle:             true;
+    dynamic:           true;
+    layout:            vertical;
+}
+
+mainbox {
+    background-color:  @transparent;
+    children:          [ inputbar, listview ];
+    spacing:           0px;
+    padding:           0px;
+}
+
+element {
+    background-color:  @transparent;
+    text-color:        @fg;
+    padding:           8px;
+}
+
+element-icon {
+    background-color:  @transparent;
+    size:  24px;
+}
+
+element-text {
+    background-color:  @transparent;
+    expand:            true;
+    vertical-align:    0.5;
+    text-color:        @fg;
+    margin:            0px 4px 0px 4px;
+}
+
+element selected {
+    background-color:  @bright;
+    text-color:        @fg;
+}

@@ -1,0 +1,20 @@
+#!/bin/sh
+
+while read file
+do
+    case "$1" in
+    "C-w") wal -i "$file"; bspc wm -r; notify-send -i "$(readlink -f "$file")" "Wallpaper" "Successfully Applied" ;;
+    "C-c")
+		cp "$file" ~/pix && notify-send -i "$(readlink -f "$file")" "$file" "Copied to ~/pix" ;;
+	"C-d")
+		[ "$(printf "No\\nYes" | rofi -dmenu -theme ~/.config/rofi/dmenu.rasi -i -p "Confirm Delete $file? ")" = "Yes" ] && rm "$file" && notify-send "$file Deleted" ;;
+	"C-period")
+		convert -rotate 90 "$file" "$file" ;;
+	"C-comma")
+		convert -rotate -90 "$file" "$file" ;;
+	"C-backslash")
+		convert -flop "$file" "$file" ;;
+	"C-minus")
+		convert -flip "$file" "$file" ;;
+        esac
+done

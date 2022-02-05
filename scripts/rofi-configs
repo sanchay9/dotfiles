@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+DMEDITOR="$TERMINAL -e nvim"
+
+declare -A options
+options[alacritty]="$HOME/.config/alacritty/alacritty.yml"
+options[kitty]="$HOME/.config/kitty/kitty.conf"
+options[bspwm]="$HOME/.config/bspwm/bspwmrc"
+options[cava]="$HOME/.config/cava/config"
+options[dunst]="$HOME/.config/dunst/dunstrc"
+options[gtk-3.0]="$HOME/.config/gtk-3.0/settings.ini"
+options[mpv]="$HOME/.config/mpv/input.conf"
+options[picom]="$HOME/.config/picom/picom.conf"
+options[polybar]="$HOME/.config/polybar/config.ini"
+options[ranger]="$HOME/.config/ranger/rc.conf"
+options[rofi]="$HOME/.config/rofi/config.rasi"
+options[sxhkd]="$HOME/.config/sxhkd/sxhkdrc"
+options[sxiv]="$HOME/.config/sxiv/exec/key-handler"
+options[xresources]="$HOME/.Xresources"
+options[xprofile]="$HOME/.xprofile"
+options[zathura]="$HOME/.config/zathura/zathurarc"
+options[zsh]="$HOME/.zshrc"
+
+choice=$(printf '%s\n' "${!options[@]}" | rofi -dmenu -i -p 'What config would you like to break today?' "$@")
+cfg=$(printf '%s\n' "${options["${choice}"]}")
+
+if [ "$choice"  ]; then
+    $DMEDITOR "$cfg"
+
+else
+    echo "Program terminated." && exit 0
+fi

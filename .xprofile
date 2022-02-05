@@ -1,36 +1,35 @@
 # env vars
 export TERMINAL="kitty"
+export EDITOR="nvim"
+export CHROME_EXECUTABLE="google-chrome-beta"
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
+export QT_QPA_PLATFORMTHEME=qt5ct
+export MOZ_USE_XINPUT2=1
+export FZF_DEFAULT_OPTS="--pointer=' ↪' --color=16 --margin=1,3 --layout=reverse --info=inline --border"
 
 # XDG paths
 export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CACHE_HOME=$HOME/.cache
 
 export PATH="$HOME/.local/bin":$PATH
 export PATH="$HOME/.config/scripts":$PATH
+export PATH="$HOME/.local/share/fluttermain/bin":$PATH
+export PATH="$HOME/.local/share/nvim/lua-language-server/bin/Linux":$PATH
+export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin":$PATH
 
-# keyboard
 xset r rate 250 40
 setxkbmap -option caps:swapescape
 xsetroot -cursor_name left_ptr
-
-# hide mouse while typing
 xbanish &
 
-# discord
-discord --start-minimized &
-
-# touchpad gestures
-libinput-gestures-setup start &
-
-#playerctld
+# feh --bg-fill --randomize /mnt/WindowsD/Sanchay/Pictures/Space/*
+~/.fehbg
+libinput-gestures &
 playerctld daemon &
-
-# compositor
-picom -b --experimental-backends
-
-# network manager
+picom -b --experimental-backends &
 nm-applet &
-
-# notifications
 dunst &
+eww daemon &
+discord --start-minimized &

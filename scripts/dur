@@ -1,0 +1,1 @@
+exiftool -n -q -p '${Duration;our $sum;$_=ConvertDuration($sum+=$_)}' ./* | tail -n1

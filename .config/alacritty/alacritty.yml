@@ -2,8 +2,8 @@
 
 window:
   padding:
-    x: 0
-    y: 0
+    x: 25
+    y: 25
   dynamic_padding: true
   decorations: full
   dynamic_title: true
@@ -14,29 +14,22 @@ scrolling:
 
 # draw_bold_text_with_bright_colors: true
 
-background_opacity: 0.85
-
 font:
   normal:
-    family: FiraCode Nerd Font Mono
-    style: Regular
-  bold:
-    family: FiraCode Nerd Font Mono
-    style: Bold
-  italic:
-    family: FiraCode Nerd Font Mono
-    style: Italic
-  bold_italic:
-    family: FiraCode Nerd Font Mono
-    style: Bold Italic
+    family: Iosevka
+  # bold:
+  #   family: monospace
+  #   style: Bold
+  # italic:
+  #   family: Iosevka
 
-  size: 10
+  size: 12
 
   ligatures: true
 
   offset:
-    x: -1
-    y: -1
+    x: 0
+    y: 0
   glyph_offset:
     x: 0
     y: 0
@@ -52,4 +45,4 @@ key_bindings:
 
 colors:
     primary:
-      background: '#2a2f38'
+      background: '#1a1b26'

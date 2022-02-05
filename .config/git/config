@@ -1,0 +1,9 @@
+[user]
+	name = Sanchay Kumar
+	email = sanchaykumar9@gmail.com
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[core]
+	excludesFile = ~/.gitignore

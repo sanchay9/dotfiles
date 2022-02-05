@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# brightnessctl s {+5%,5%-} && notify-send -h string:x-dunst-stack-tag:brightness "Brightness" -h int:value:"`echo $(($(brightnessctl g)*100/255))`"
+
+dir="$HOME/.config/icons"
+
+function get_brightness {
+    echo $(($(brightnessctl g)*100/255))
+}
+
+function send_notification {
+    icon="$dir/brightness.svg"
+
+    cur=$(get_brightness)
+    dunstify -h string:x-dunst-stack-tag:brightness "Brightness" -h int:value:"$cur" -i $icon -u normal
+
+    # bar=$(seq --separator="─" 0 $(($(get_brightness) / 5)) | sed 's/[0-9]//g')
+    # dunstify -h string:x-dunst-stack-tag:brightness "Brightness" "$bar" -i $icon -u normal
+}
+
+case $1 in
+    up)
+        brightnessctl s +5%
+        send_notification
+        ;;
+    down)
+        brightnessctl s 5%-
+        send_notification
+        ;;
+esac
