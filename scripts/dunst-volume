@@ -1,6 +1,4 @@
-#!/bin/bash
-
-# pactl set-sink-volume @DEFAULT_SINK@ {+,-}1% && dunstify -h string:x-dunst-stack-tag:pulseaudio "Volume" -h int:value:"`pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'`"
+#!/bin/sh
 
 dir="$HOME/.config/icons"
 
@@ -10,14 +8,17 @@ function get_volume {
 }
 
 function is_mute {
-    pacmd list-sinks | awk '/muted/ { print $2 }'
+    # pacmd list-sinks | awk '/muted/ { print $2 }'
+    pactl list sinks | awk '/Mute/ { print $2 }'
+    # pactl list sinks | sed -n "/Sink #''${DEFAULT_SINK_ID}/,/Mute/ s/Mute: \(yes\)/\1/p"
     # amixer get Master | grep '%' | grep -oE '[^ ]+$' | grep off > /dev/null
 }
 
 function send_notification {
     cur=$(get_volume)
+    mut=$(is_mute)
 
-    if [ $(is_mute) = "yes" ] ; then
+    if [ "$mut" = "yes" ]; then
         icon="$dir/volume-muted.svg"
     else
         if [ "$cur" -lt "15" ]; then
@@ -37,13 +38,18 @@ function send_notification {
 
 case $1 in
     up)
-        pactl set-sink-volume @DEFAULT_SINK@ +5% > /dev/null
+        cur=$(get_volume)
+        if [ "$cur" -ge "99" ]; then
+            pactl set-sink-volume @DEFAULT_SINK@ 100% > /dev/null
+        else
+            pactl set-sink-volume @DEFAULT_SINK@ +1% > /dev/null
+        fi
         # amixer -D pulse set Master on > /dev/null
         # amixer -D pulse sset Master 5%+ > /dev/null
         send_notification
         ;;
     down)
-        pactl set-sink-volume @DEFAULT_SINK@ -5% > /dev/null
+        pactl set-sink-volume @DEFAULT_SINK@ -1% > /dev/null
         # amixer -D pulse set Master on > /dev/null
         # amixer -D pulse sset Master 5%- > /dev/null
         send_notification
