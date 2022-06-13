@@ -1,18 +1,19 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Custom Colorscheme",
     "version": "1.0",
 
     "theme": {
         "colors" : {
-            "toolbar" : [46,52,64],
-            "frame" : [64,70,80],
-            "frame_inactive" : [76,86,106],
+            "toolbar" : [169,177,214],
+            "frame" : [26,27,38],
+            "frame_inactive" : [26,27,38],
 
-            "tab_text" : [255,255,255],
-            "tab_background_text" : [236,239,244],
-
-            "bookmark_text" : [255,255,255]
+            "tab_text" : [26,27,38],
+            "tab_background_text" : [169,177,214]
+        },
+        "tints" : {
+            "buttons" : [0, 0, 0]
         }
     }
 }
