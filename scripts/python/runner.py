@@ -15,8 +15,14 @@ class PrefixedStream(io.IOBase):
 
     def close(self):
         pass
+    
+    def exit(self):
+        pass
 
     def write(self, b):
+        return self.stream.write(self.prefix + b)
+    
+    def type(self, b):
         return self.stream.write(self.prefix + b)
 
 
