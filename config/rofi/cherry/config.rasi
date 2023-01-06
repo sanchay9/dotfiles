@@ -34,7 +34,7 @@ entry {
 
 inputbar {
 	children: 			[ prompt, entry ];
-	background-image:               url("./img/bg.png");
+	background-image:               url("./bg.png");
 	expand:                         false;
 	border-radius:                  0px 0 8px 8px;
 	padding:                        100px 30px 30px 300px;

@@ -1,6 +1,7 @@
 # auto-reload yes
 reload-threads 5
 
+max-items 200
 notify-always yes
 notify-program "notify-send"
 notify-format "Newsboat: %f Unread Feeds (%n Unread Articles Total)"

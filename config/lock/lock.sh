@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-$HOME/.config/lock/lock
+# blur / calvin / fancy / pixel
+
+$HOME/.config/lock/locks
 # betterlockscreen -l dim

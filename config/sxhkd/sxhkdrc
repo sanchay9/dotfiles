@@ -51,10 +51,6 @@ super + {p,b,comma,period}
 super + grave
 	bspc node -f next.local.!hidden.window
 
-# focus the next/previous desktop in the current monitor
-super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
-
 # focus the last node/desktop
 super + Tab
 	bspc node -f last
@@ -101,40 +97,47 @@ super + {Left,Down,Up,Right}
 super + Return
     $TERMINAL
 
-super + shift + Return
-    ~/.config/scripts/ocr.sh
-
-super + c
-    google-chrome-beta --force-device-scale-factor=1.2 %U --profile-directory="Default"
-
 super + shift + space
     rofi -show drun -theme ~/.config/rofi/small/config.rasi
 
+super + shift + Return
+    ~/.config/scripts/ocr.sh
+
+super + d
+    ~/.config/scripts/word-lookup.sh
+
+super + c
+    google-chrome-beta --force-device-scale-factor=1.1 %U --profile-directory="Default"
+
 super + v
-    $TERMINAL -e nvim
+    kitty -o window_padding_width=0 -e nvim
 
 super + n
-    kitty --start-as fullscreen -e ncmpcpp
+    kitty --start-as fullscreen -o window_padding_width=1 -e ncmpcpp
 
 alt + control + Delete
-    kitty --start-as fullscreen -e btop
+    kitty -o window_padding_width=0 --start-as fullscreen -e btop
 
 super + e
     QT_QPA_PLATFORMTHEME=qt5ct dolphin
 
 super + shift + Escape
-    ~/.config/eww/launch.sh
+    ~/.config/eww/powermenu/launch.sh
 
+# maim -s ~/pix/Screenshots/$(date +%Y-%m-%d_%I-%M).png | xclip -sel c -t image/png"
+# maim ~/pix/Screenshots/$(date +%Y-%m-%d_%I-%M).png | xclip -sel c -t image/png"
 Print
-    flameshot gui -p ~/pix/Screenshots
+    flameshot gui -c -p ~/pix/Screenshots
 
 super + Print
-    flameshot full -c -p ~/pix/Screenshots
+    flameshot launcher
 
 XF86MonBrightness{Up,Down}
     ~/.config/scripts/dunst-brightness {up,down}
 XF86Audio{RaiseVolume,LowerVolume,Mute,MicMute}
     ~/.config/scripts/dunst-volume {up,down,mute,micmute}
+alt+XF86Audio{RaiseVolume,LowerVolume}
+    ~/.config/scripts/dunst-brightness {up,down}
 
 XF86Audio{Play,Next,Prev}
     playerctl {play-pause,next,previous}
@@ -143,7 +146,7 @@ super+ctrl+{Left,Right}
     mpc {prev,next}
 
 super + space
-    dunstctl close
+    dunstctl close-all
 
 ctrl + grave
     dunstctl history-pop
@@ -155,4 +158,8 @@ super + alt + b
 	polybar-msg cmd toggle; bspc config top_padding {+0,10}
 
 super + i
-    rofi -show emoji -modi run,drun,window,emoji -theme ~/.config/rofi/small/config.rasi
+    ~/.config/scripts/gitemoji
+# rofi -show emoji -modi run,drun,window,emoji -theme ~/.config/rofi/small/config.rasi
+
+~button8
+    bspc query -D -d .focused.!occupied && echo -e "$(cat ~/.config/jgmenu/menu.txt)" | jgmenu --simple

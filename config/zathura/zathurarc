@@ -5,7 +5,7 @@ set statusbar-basename true
 set selection-clipboard clipboard
 
 set sandbox none
-set font "FiraCode Nerd Font 11"
+set font "Iosevka 11"
 
 map u scroll half-up
 map d scroll half-down
@@ -21,4 +21,4 @@ map F follow
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
 
-include tokyonight
+include themes/tokyonight

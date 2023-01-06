@@ -77,5 +77,18 @@ element-text {
 
 element selected {
     background-color:  @bright;
-    text-color:        @fg;
+    /* text-color:        @fg; */
+}
+
+element selected.normal {
+    background-image: linear-gradient(#bb9af7, #7aa2f7);
+    text-color: black;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
 }
