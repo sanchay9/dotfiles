@@ -1,6 +1,0 @@
-opacity-rule = [ # here you can set specific rules for specific windows
-    # some examples of how you might use this
-    "50:class_g = 'Bspwm' && class_i = 'presel_feedback'", # have 50% opacity on bspwm preselection
-    "95:class_g = 'kitty' && focused", # have 95% opacity on focused kitty windows
-    "80:class_g = 'kitty' && !focused", # have 80% opacity on unfocused kitty windows
-];

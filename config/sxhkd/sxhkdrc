@@ -1,0 +1,165 @@
+################## bspwm hotkeys
+
+super + alt + r
+    bspc wm -r; notify-send 'bspwm' 'Reloaded Config'
+super + alt + t
+    pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded Config'
+super + alt + y
+    ~/.config/polybar/launch.sh; notify-send 'polybar' 'Reloaded Config'
+super + alt + u
+    killall dunst; notify-send 'dunst' 'Reloaded Config'
+
+# close and kill
+super + shift + q
+    bspc node -c
+super + alt + q
+    bspc node -k
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# send the newest marked node to the newest preselected node
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest window
+super + g
+	bspc node -s biggest.window
+
+################## state/flags
+
+# set the window state
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,\~fullscreen}
+
+# set the node flags
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+################### focus/swap
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus the node for the given path jump
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous window in the current desktop
+super + grave
+	bspc node -f next.local.!hidden.window
+
+# focus the last node/desktop
+super + Tab
+	bspc node -f last
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+#################### preselect
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#################### move/resize
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+
+#################### wm independent hotkeys
+
+super + Return
+    $TERMINAL
+
+super + shift + space
+    rofi -show drun -theme ~/.config/rofi/small/config.rasi
+
+super + shift + Return
+    ~/.config/scripts/ocr.sh
+
+super + d
+    ~/.config/scripts/word-lookup.sh
+
+super + c
+    google-chrome-beta --force-device-scale-factor=1.1 %U --profile-directory="Default"
+
+super + v
+    kitty -o window_padding_width=0 -e nvim
+
+super + n
+    kitty --start-as fullscreen -o window_padding_width=1 -e ncmpcpp
+
+alt + control + Delete
+    kitty -o window_padding_width=0 --start-as fullscreen -e btop
+
+super + e
+    QT_QPA_PLATFORMTHEME=qt5ct dolphin
+
+super + shift + Escape
+    ~/.config/eww/powermenu/launch.sh
+
+# maim -s ~/pix/Screenshots/$(date +%Y-%m-%d_%I-%M).png | xclip -sel c -t image/png"
+# maim ~/pix/Screenshots/$(date +%Y-%m-%d_%I-%M).png | xclip -sel c -t image/png"
+Print
+    flameshot gui -c -p ~/pix/Screenshots
+
+super + Print
+    flameshot launcher
+
+XF86MonBrightness{Up,Down}
+    ~/.config/scripts/dunst-brightness {up,down}
+XF86Audio{RaiseVolume,LowerVolume,Mute,MicMute}
+    ~/.config/scripts/dunst-volume {up,down,mute,micmute}
+alt+XF86Audio{RaiseVolume,LowerVolume}
+    ~/.config/scripts/dunst-brightness {up,down}
+
+XF86Audio{Play,Next,Prev}
+    playerctl {play-pause,next,previous}
+
+super+ctrl+{Left,Right}
+    mpc {prev,next}
+
+super + space
+    dunstctl close-all
+
+ctrl + grave
+    dunstctl history-pop
+
+super + a
+    google-chrome-beta --new-window --app="https://codeforces.com/problemset?order=BY_RATING_ASC&tags=1500-"
+
+super + alt + b
+	polybar-msg cmd toggle; bspc config top_padding {+0,10}
+
+super + i
+    ~/.config/scripts/gitemoji
+# rofi -show emoji -modi run,drun,window,emoji -theme ~/.config/rofi/small/config.rasi
+
+~button8
+    bspc query -D -d .focused.!occupied && echo -e "$(cat ~/.config/jgmenu/menu.txt)" | jgmenu --simple
