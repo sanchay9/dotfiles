@@ -1,0 +1,10 @@
+#!/bin/sh
+
+black=#1a1b26
+green=#9ece6a
+white=#a9b1d6
+grey=#414868
+blue=#7aa2f7
+yellow=#e0af68
+# red=#d47d85
+red=#F7768E
