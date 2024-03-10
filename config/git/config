@@ -6,4 +6,10 @@
 [color]
 	ui = auto
 [core]
-	excludesFile = ~/.gitignore
+	excludesFile = ~/.config/git/gitignore
+[commit]
+	template = ~/.config/git/template
+; [url "git@github.com:"]
+;     insteadOf = https://github.com/
+[push]
+	autoSetupRemote = true
