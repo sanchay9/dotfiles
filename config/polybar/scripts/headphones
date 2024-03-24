@@ -1,9 +1,0 @@
-#!/bin/sh
-
-cur=$(pactl list sinks | awk '/Active Port/ { print $4 }')
-
-if [ "$cur" = "Headphones" ]; then
-    echo '󰋋'
-else
-    echo '󰕾'
-fi
