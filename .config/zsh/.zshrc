@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 HISTSIZE=25000 # Maximum events for internal history
 SAVEHIST=25000 # Maximum events in history file
 SUDO_PROMPT="give me %u's pass pls: "
