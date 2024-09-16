@@ -18,4 +18,3 @@ export MANWIDTH=999
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export HISTFILE="$ZDOTDIR/.zsh_history"
-. "/Users/sanchay.kumar/.local/share/cargo/env"

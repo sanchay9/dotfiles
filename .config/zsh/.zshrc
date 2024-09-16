@@ -14,11 +14,12 @@ setopt HIST_IGNORE_SPACE    # Don't record an entry starting with space
 setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks before recording entry
 
 if [[ $(uname -s) == 'Darwin' ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
     export PATH=$PATH:$HOME/nvim/bin
+    eval "$(/opt/homebrew/bin/brew shellenv)"
     source "$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
     source "$(brew --prefix)/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
     source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    source "${HOME}/.local/share/cargo/env"
 else
     source "/usr/share/doc/pkgfile/command-not-found.zsh" # requires pkgfile
     source "/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
