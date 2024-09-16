@@ -46,18 +46,13 @@ alias wget="aria2c"
 alias rm="rm -i"
 alias v="nvim"
 alias g="git"
-# alias z=" tgpt"
+alias z=" tgpt"
 alias nvim-startup="nvim --startuptime startuplog.txt +x && cat startuplog.txt && command rm startuplog.txt"
 alias musopen="mpv 'https://live.musopen.org:8085/streamvbr0' --no-resume-playback"
 alias cam="mpv av://v4l2:/dev/video0 --profile=low-latency --untimed" # https://github.com/mpv-player/mpv/wiki/Video4Linux2-Input
 alias myip="curl 'https://checkip.amazonaws.com'"
 alias dots='git --git-dir ~/.dotfiles --work-tree ~'
-
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit"
-alias gp="git push"
-alias gd="git diff"
+alias dotse='GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME fs nvim'
 
 case "$(uname -s)" in
 Darwin)
@@ -83,7 +78,6 @@ xterm-kitty)
 
     alias nvim="fs nvim"
     alias btop="fs btop"
-    alias tmux="fs tmux"
     alias tt="fs tt -notheme -quotes en"
     alias ssh="kitty +kitten ssh"
     alias clock="fs tty-clock -C 6 -c -b"
