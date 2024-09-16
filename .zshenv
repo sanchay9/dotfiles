@@ -15,7 +15,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export HISTFILE="$ZDOTDIR/.zsh_history"
+. "/Users/sanchay.kumar/.local/share/cargo/env"
