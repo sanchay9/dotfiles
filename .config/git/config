@@ -1,22 +1,24 @@
 [user]
-	name = Sanchay Kumar
+	name = sanchaykumar
 	email = sanchaykumar9@gmail.com
+[includeIf "gitdir:~/work/"]
+    path = ~/work/.gitconfig
 [init]
 	defaultbranch = main
 [color]
-	ui = true
+	ui = auto
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = 11
-	frag = magenta bold
-	func = 146 bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+    pager = delta
+	excludesFile = ~/.config/git/gitignore
+[commit]
+	template = ~/.config/git/template
+[push]
+	autoSetupRemote = true
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true    # use n and N to move between diff sections
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
