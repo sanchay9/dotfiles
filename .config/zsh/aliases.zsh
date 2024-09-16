@@ -29,7 +29,7 @@ validateYaml() {
 }
 
 c() {
-    selected=$(fd --min-depth 1 --max-depth 1 --type d . ~ ~/work ~/work/learngo ~/personal ~/.config | fzf --preview 'eza --tree --icons {}')
+    selected=$(fd --min-depth 1 --max-depth 1 --type d . ~ ~/work ~/work/learngo ~/dev ~/.config 2>/dev/null | fzf --preview 'eza --tree --icons {}')
     [ -z "$selected" ] && return 0
     cd "$selected" || return 1
 }
