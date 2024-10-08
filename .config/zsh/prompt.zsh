@@ -30,8 +30,8 @@ zstyle ':vcs_info:git:*' formats "%F{blue}(%F{red}%m%u%c%F{yellow}%F{magenta}
 # PS1="%B%F{blue}[%F{white}%n%F{red}@%F{white}%m%F{blue}] %(?:%F{green}➜ :%F{red} )%F{cyan}%1~%b \$vcs_info_msg_0_"
 # PS1="%B%F{red}[%F{yellow}%n%F{green}@%F{blue}%M %F{magenta}%1~%F{red}]%f$%b "
 # PS1="\$vcs_info_msg_0_%F{red}%n@%F{blue}%m %F{yellow}%1~%f "
-PS1="%B%F{magenta}%1~%b \${vcs_info_msg_0_}%(?.%F{green}.%F{red})%f "
-# PS1="%B%F{white}%1~%b \$vcs_info_msg_0_%(?.%F{red}%F{yellow}%F{green}.%F{red}%F{red}%F{red})%{$reset_color%} " # 
+PS1="%B%F{magenta}%1~%b \${vcs_info_msg_0_}%(?.%F{green}❯.%F{red}❯)%f "
+# PS1="%B%F{white}%1~%b \$vcs_info_msg_0_%(?.%F{red}%F{yellow}%F{green}.%F{red}%F{red}%F{red})%{$reset_color%} "
 
 # source ~/.config/zsh/git-prompt.sh
 
