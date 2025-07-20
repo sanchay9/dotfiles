@@ -16,7 +16,6 @@ setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks before recording entry
 if [[ $(uname -s) == 'Darwin' ]]; then
     export PATH=$PATH:$HOME/nvim/bin
     eval "$(/opt/homebrew/bin/brew shellenv)"
-    source "$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
     source "$(brew --prefix)/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
     source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
     source "${HOME}/.local/share/cargo/env"

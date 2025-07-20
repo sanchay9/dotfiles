@@ -70,7 +70,7 @@ if [[ -o menucomplete ]]; then
     bindkey -M menuselect '^n' vi-down-line-or-history
 fi
 
-bindkey '^[[Z' reverse-menu-complete
+bindkey -M menuselect '^[[Z' reverse-menu-complete
 
 _swcs() {
     compadd auto light dark
