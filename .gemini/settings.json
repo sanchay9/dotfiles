@@ -1,0 +1,7 @@
+{
+  "theme": "Default",
+  "selectedAuthType": "gemini-api-key",
+  "preferredEditor": "nvim",
+  "hideTips": true,
+  "hideBanner": true
+}
