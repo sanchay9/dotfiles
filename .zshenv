@@ -18,3 +18,8 @@ export MANWIDTH=999
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export HISTFILE="$ZDOTDIR/.zsh_history"
+
+# Autostart Hyprland on TTY1
+if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+    Hyprland
+fi

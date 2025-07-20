@@ -1,0 +1,16 @@
+SHELL=/usr/bin/bash
+PATH=/usr/bin:$PATH
+DISPLAY=:1
+WAYLAND_DISPLAY=wayland-1
+DESKTOP_SESSION=hyprland
+XDG_RUNTIME_DIR=/run/user/1000
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+
+0 */4 * * * newsboat -x reload
+0 */2 * * * grim ~/pix/periodic/$(date +\%Y-\%m-\%d_\%H-\%M).png
+0 8 * * * $HOME/.local/bin/swcs light
+0 17 * * * $HOME/.local/bin/swcs dark
+0 22 * * * hyprctl --instance 0 keyword decoration:screen_shader $HOME/.config/hypr/shaders/blue.frag
+50 23 * * * notify-send -u critical "time to wrap up the day" "15 mins to go"
+0 0 * * * notify-send -u critical "shuttin down in 5" "have a gn"
+5 0 * * * poweroff
