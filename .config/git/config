@@ -20,7 +20,10 @@
     diffFilter = delta --color-only
 [delta]
     navigate = true    # use n and N to move between diff sections
+	features = catppuccin-mocha
 [merge]
     conflictstyle = diff3
 [diff]
     colorMoved = default
+[include]
+	path = ~/.config/git/catppuccin.gitconfig
