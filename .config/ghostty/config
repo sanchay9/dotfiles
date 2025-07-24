@@ -1,0 +1,46 @@
+auto-update = off
+theme = light:catppuccin-latte,dark:catppuccin-mocha
+# theme = light:catppuccin-latte,dark:kanagawa-dragon
+
+# custom-shader = shaders/bettercrt.glsl
+
+# font-family = "GohuFont uni14 Nerd Font"
+# font-family = "Terminess Nerd Font"
+# font-family = "Maple Mono"
+# font-family = "Victor Mono"
+
+# adjust-cell-height = 20
+
+mouse-hide-while-typing = true
+macos-option-as-alt = left
+
+cursor-invert-fg-bg = true
+background-opacity = 1
+background-blur-radius = 20
+unfocused-split-opacity = 1
+# window-theme = ghostty
+# macos-titlebar-style = hidden
+window-padding-x = 0
+window-padding-y = 0
+
+keybind = super+h=goto_split:left
+keybind = super+j=goto_split:bottom
+keybind = super+k=goto_split:top
+keybind = super+l=goto_split:right
+keybind = super+enter=new_split:auto
+keybind = super+shift+period=move_tab:1
+keybind = super+f=toggle_split_zoom
+keybind = super+w=close_surface
+keybind = super+shift+,=reload_config
+keybind = super+alt+i=inspector:toggle
+
+keybind = ctrl+shift+k=scroll_page_up
+keybind = ctrl+shift+j=scroll_page_down
+
+keybind = global:cmd+space=toggle_quick_terminal
+
+window-padding-balance = true
+window-decoration = true
+
+copy-on-select = clipboard
+shell-integration-features = cursor,sudo,no-title
