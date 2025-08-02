@@ -1,0 +1,17 @@
+-- Don't log these commands at the beginning of the file
+\set QUIET 1
+
+-- Set Null char output to differentiate it from empty string
+\pset null '¤'
+
+-- Always show query time
+\timing
+
+--Outline table borders and separators using Unicode characters
+\pset linestyle unicode
+
+--Automatically format expanded display for wide columns
+\x auto
+
+-- Reset command logging at the end of the file
+\unset QUIET
