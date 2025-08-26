@@ -27,3 +27,5 @@
     colorMoved = default
 [include]
 	path = ~/.config/git/catppuccin.gitconfig
+[url "git@github.com:"]
+	insteadOf = https://github.com/

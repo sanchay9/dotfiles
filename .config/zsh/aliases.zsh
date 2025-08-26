@@ -36,7 +36,7 @@ alias g="git"
 alias f="fzf"
 alias myip="curl 'https://checkip.amazonaws.com'"
 alias dots='git --git-dir ~/.dotfiles --work-tree ~'
-alias dotse='GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim'
+alias dotse='GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim -c Neogit'
 
 case "$(uname -s)" in
 Darwin) ;;
