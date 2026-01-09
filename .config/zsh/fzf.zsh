@@ -57,3 +57,26 @@ set-aws-profile() {
         --layout=reverse \
         --prompt " : ")
 }
+
+fzf_git_checkout_branch() {
+    git rev-parse --is-inside-work-tree &>/dev/null || return
+
+    branches=$(git branch "$@" --sort=-committerdate --sort=-HEAD --format=$'%(HEAD) %(color:yellow)%(refname:short) %(color:green)(%(committerdate:relative))%(color:reset)' --color=always | column -ts$'\t')
+    current=$(git symbolic-ref --short HEAD)
+    branch=$(
+        echo "$branches" | grep -v "^$current$" | fzf +m \
+            --ansi \
+            --layout='reverse-list' \
+            --header-lines 1 \
+            --tiebreak begin \
+            --color hl:underline,hl+:underline \
+            --no-hscroll \
+            --bind 'alt-p:change-preview-window(hidden|)' \
+            --preview "git log -1 --date=short \$(cut -c3- <<< {} | cut -d' ' -f1) --" "$@" | sed 's/^\* //' | awk '{print $1}'
+    )
+    if [[ -n $branch ]]; then
+        echo && git checkout "$branch" && zle reset-prompt
+    fi
+}
+zle -N fzf_git_checkout_branch
+bindkey '^[b' fzf_git_checkout_branch
