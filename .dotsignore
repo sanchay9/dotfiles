@@ -1,0 +1,7 @@
+*
+!.dotsignore
+!.config/kitty/
+!.config/mpv/
+!.config/zsh/
+!.config/hypr/
+!.zshenv
