@@ -43,7 +43,6 @@ alias ps="procs"
 alias wget="aria2c"
 alias rm="rm -i"
 alias v="nvim"
-alias f="fzf"
 alias myip="curl 'https://checkip.amazonaws.com'"
 alias aws-set-profile='export AWS_PROFILE=$(aws configure list-profiles | fzf --prompt "AWS profile:")'
 alias dots='git --git-dir $HOME/.dotfiles --work-tree $HOME'

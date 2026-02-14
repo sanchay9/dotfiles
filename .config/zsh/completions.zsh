@@ -72,6 +72,8 @@ fi
 
 bindkey -M menuselect '^[[Z' reverse-menu-complete
 
+compdef g=git
+
 _swcs() {
     compadd auto light dark
 }

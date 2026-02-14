@@ -5,14 +5,10 @@ SUDO_PROMPT="give me %u's pass pls: "
 setopt INTERACTIVE_COMMENTS
 unsetopt PROMPT_CR PROMPT_SP
 
-HISTFILE="$ZDOTDIR/.zsh_history"
-HISTSIZE=25000              # Maximum events for internal history
-SAVEHIST=25000              # Maximum events in history file
-setopt INC_APPEND_HISTORY   # Immediately append to the history file, not when shell exits
-setopt HIST_IGNORE_ALL_DUPS # Delete old recorded entry if new entry is a duplicate
-setopt HIST_SAVE_NO_DUPS    # Don't write duplicate entries
-setopt HIST_IGNORE_SPACE    # Don't record an entry starting with space
-setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks before recording entry
+HISTFILE=$ZDOTDIR/.zsh_history
+HISTSIZE=25000
+SAVEHIST=${HISTSIZE}
+setopt hist_ignore_all_dups hist_ignore_space inc_append_history share_history hist_save_no_dups
 
 if [[ $(uname -s) == 'Darwin' ]]; then
     source "$HOMEBREW_PREFIX/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
@@ -40,7 +36,8 @@ source "${ZDOTDIR}/vim.zsh"
 source "${ZDOTDIR}/aliases.zsh"
 source "${ZDOTDIR}/fzf.zsh"
 
-bindkey '^E' autosuggest-clear
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
 bindkey '^Y' forward-word
 bindkey '^H' backward-kill-word # ctrl + backspace to delete word
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)

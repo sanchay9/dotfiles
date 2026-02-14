@@ -1,8 +1,14 @@
--- Don't log these commands at the beginning of the file
+-- Don't display the "helpful" message on startup.
 \set QUIET 1
 
 -- Set Null char output to differentiate it from empty string
 \pset null '¤'
+
+-- http://www.postgresql.org/docs/9.3/static/app-psql.html#APP-PSQL-PROMPTING
+\set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%# '
+-- PROMPT2 is printed when the prompt expects more input, like when you type
+-- SELECT * FROM<enter>. %R shows what type of input it expects.
+\set PROMPT2 '[more] %R > '
 
 -- Always show query time
 \timing
@@ -12,6 +18,11 @@
 
 --Automatically format expanded display for wide columns
 -- \x auto
+
+\set VERBOSITY verbose
+\set HISTFILE ~/.psql_history- :DBNAME
+\set HISTCONTROL ignoredups
+\set COMP_KEYWORD_CASE upper
 
 -- Reset command logging at the end of the file
 \unset QUIET
