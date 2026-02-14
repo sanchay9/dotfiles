@@ -1,7 +1,50 @@
 {
-  "theme": "Default",
-  "selectedAuthType": "gemini-api-key",
-  "preferredEditor": "nvim",
-  "hideTips": true,
-  "hideBanner": true
+    "model": {
+        "name": "gemini-3-pro-preview"
+    },
+    "mcpServers": {
+        "context7": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@upstash/context7-mcp"
+            ]
+        },
+        "serena": {
+            "command": "uv",
+            "args": [
+                "run",
+                "--directory",
+                "/home/sanchay/.cache/serena",
+                "serena-mcp-server"
+            ]
+        }
+    },
+    "general": {
+        "disableAutoUpdate": true,
+        "preferredEditor": "nvim",
+        "previewFeatures": true,
+        "vimMode": false,
+        "enableAutoUpdate": false
+    },
+    "ui": {
+        "hideTips": true,
+        "hideBanner": true,
+        "theme": "Default"
+    },
+    "telemetry": {
+        "enabled": false,
+        "target": "local",
+        "otlpEndpoint": "http://localhost:4317",
+        "logPrompts": true
+    },
+    "privacy": {
+        "usageStatisticsEnabled": false
+    },
+    "security": {
+        "auth": {
+            "selectedType": "oauth-personal"
+        }
+    }
 }
+

@@ -31,7 +31,7 @@ FZF_CTRL_T_OPTS="
 "
 FZF_CTRL_R_OPTS="
     --prompt '   '
-    --bind 'enter:execute-silent(echo -n {2..} | $copy_cmd)+abort'
+    --bind 'enter:execute-silent(echo -n {2..} | ${copy_cmd})+abort'
 "
 FZF_ALT_C_COMMAND="fd --prune --type d . . ~ ~/work ~/work/cx-core ~/dev ~/.config 2>/dev/null"
 FZF_ALT_C_OPTS="

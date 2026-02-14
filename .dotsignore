@@ -1,7 +1,19 @@
-*
-!.dotsignore
-!.config/kitty/
-!.config/mpv/
-!.config/zsh/
-!.config/hypr/
-!.zshenv
+# Ignore everything by default
+/*
+
+# Unignore specific root files/folders
+!/.dotsignore
+!/.gemini/
+!/.zshenv
+
+# Handle the .config tree
+!/.config/
+/.config/*
+
+# Whitelist specific apps inside .config
+!/.config/kitty/
+!/.config/ghostty/
+!/.config/mpv/
+!/.config/ripgrep/
+!/.config/zsh/
+!/.config/hypr/

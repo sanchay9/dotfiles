@@ -1,6 +1,11 @@
 [user]
 	name = sanchaykumar
 	email = sanchaykumar9@gmail.com
+[include]
+	path = ~/.config/git/catppuccin.gitconfig
+[delta]
+    navigate = true    # use n and N to move between diff sections
+	features = catppuccin-mocha
 [includeIf "gitdir:~/work/"]
     path = ~/work/.gitconfig
 [init]
@@ -18,14 +23,18 @@
 	autoSetupRemote = true
 [interactive]
     diffFilter = delta --color-only
-[delta]
-    navigate = true    # use n and N to move between diff sections
-	features = catppuccin-mocha
 [merge]
     conflictstyle = diff3
 [diff]
     colorMoved = default
-[include]
-	path = ~/.config/git/catppuccin.gitconfig
-[url "git@github.com:"]
-	insteadOf = https://github.com/
+[alias]
+	# Undo latest commit
+	undo = reset --soft HEAD^
+
+	# View abbreviated SHA, description, and history graph of the latest 20 commits
+	l = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' -n 20 --graph --abbrev-commit --date=relative
+
+	# View the current working tree status using the short format
+	s = status -s --show-stash
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret

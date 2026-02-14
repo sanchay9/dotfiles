@@ -4,7 +4,8 @@ theme = light:catppuccin-latte,dark:catppuccin-mocha
 
 # custom-shader = shaders/bettercrt.glsl
 
-# font-family = "GohuFont uni14 Nerd Font"
+font-family = "Cozette"
+font-size=20
 # font-family = "Terminess Nerd Font"
 # font-family = "Maple Mono"
 # font-family = "Victor Mono"

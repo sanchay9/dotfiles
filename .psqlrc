@@ -11,7 +11,7 @@
 \pset linestyle unicode
 
 --Automatically format expanded display for wide columns
-\x auto
+-- \x auto
 
 -- Reset command logging at the end of the file
 \unset QUIET
