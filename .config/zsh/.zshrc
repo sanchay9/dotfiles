@@ -15,11 +15,11 @@ setopt HIST_IGNORE_SPACE    # Don't record an entry starting with space
 setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks before recording entry
 
 if [[ $(uname -s) == 'Darwin' ]]; then
-    source "$(brew --prefix)/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
-    source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    source "$HOMEBREW_PREFIX/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+    source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 else
-    source "/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
-    source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    source "/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" 2>/dev/null
+    source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" 2>/dev/null
 fi
 
 export LEETCODE_SESSION=$(pass show LEETCODE_SESSION)
@@ -27,6 +27,12 @@ export LEETCODE_CSRF=$(pass show LEETCODE_CSRF)
 export AOC_COOKIE=$(pass show AOC_COOKIE)
 export GEMINI_API_KEY=$(pass show GEMINI_API_KEY)
 export GOOGLE_GENERATIVE_AI_API_KEY=$GEMINI_API_KEY
+export ANTHROPIC_AUTH_TOKEN=$(pass show ANTHROPIC_AUTH_TOKEN)
+export ANTHROPIC_BASE_URL=https://pragya-api.angelone.in/
+export ANTHROPIC_SMALL_FAST_MODEL=claude-3-haiku
+export ANTHROPIC_DEFAULT_HAIKU_MODEL=claude-3-haiku
+export ANTHROPIC_MODEL="claude-4-5-opus"
+export NODE_TLS_REJECT_UNAUTHORIZED=0
 
 source "${ZDOTDIR}/prompt.zsh"
 source "${ZDOTDIR}/completions.zsh"

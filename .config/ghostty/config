@@ -1,17 +1,16 @@
 auto-update = off
 
-# theme = light:Catppuccin Latte,dark:Catppuccin Mocha
-theme = light:catppuccin-latte,dark:kanagawa-dragon
+theme = light:Catppuccin Latte,dark:Kanagawa Dragon
 
 # custom-shader = shaders/bettercrt.glsl
 
-font-family = "Cozette"
-font-size=20
 # font-family = "Terminess Nerd Font"
 # font-family = "Maple Mono"
 # font-family = "Victor Mono"
 
 # adjust-cell-height = 20
+
+font-size=20
 
 mouse-hide-while-typing = true
 macos-option-as-alt = left

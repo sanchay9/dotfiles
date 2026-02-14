@@ -1,5 +1,5 @@
 if ! command -v fzf &>/dev/null; then
-    exit
+    return
 fi
 
 source <(fzf --zsh)
