@@ -22,12 +22,12 @@ else
     source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" 2>/dev/null
 fi
 
-export LEETCODE_SESSION=$(pass show LEETCODE_SESSION)
-export LEETCODE_CSRF=$(pass show LEETCODE_CSRF)
-export AOC_COOKIE=$(pass show AOC_COOKIE)
-export GEMINI_API_KEY=$(pass show GEMINI_API_KEY)
+export LEETCODE_SESSION=$(pass show LEETCODE_SESSION 2>/dev/null || true)
+export LEETCODE_CSRF=$(pass show LEETCODE_CSRF 2>/dev/null || true)
+export AOC_COOKIE=$(pass show AOC_COOKIE 2>/dev/null || true)
+export GEMINI_API_KEY=$(pass show GEMINI_API_KEY 2>/dev/null || true)
 export GOOGLE_GENERATIVE_AI_API_KEY=$GEMINI_API_KEY
-export ANTHROPIC_AUTH_TOKEN=$(pass show ANTHROPIC_AUTH_TOKEN)
+export ANTHROPIC_AUTH_TOKEN=$(pass show ANTHROPIC_AUTH_TOKEN 2>/dev/null || true)
 export ANTHROPIC_BASE_URL=https://pragya-api.angelone.in/
 export ANTHROPIC_SMALL_FAST_MODEL=claude-3-haiku
 export ANTHROPIC_DEFAULT_HAIKU_MODEL=claude-3-haiku
