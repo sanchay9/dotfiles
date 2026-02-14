@@ -1,1 +1,13 @@
 .dotfiles
+*.pyc
+*.sw[nop]
+.DS_Store
+.bundle
+.byebug_history
+.env
+.git/
+/bower_components/
+/node_modules/
+log/*.log
+rerun.txt
+/tags
