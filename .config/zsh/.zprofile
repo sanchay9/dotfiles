@@ -20,7 +20,6 @@ if [[ $(uname -s) == 'Darwin' ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 else
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-    export GPG_TTY=$(tty)
     export SSH_ASKPASS=/usr/lib/seahorse/ssh-askpass
     export SSH_ASKPASS_REQUIRE=prefer
 
