@@ -7,6 +7,14 @@ y() {
     rm -f -- "$tmp"
 }
 
+g() {
+    if [[ $# -gt 0 ]]; then
+        git "$@"
+    else
+        git status
+    fi
+}
+
 jwt() {
     jq -R 'split(".") |.[0:2] | map(gsub("-"; "+") | gsub("_"; "/") | gsub("%3D"; "=") | @base64d) | map(fromjson)' <<<$1
 }
@@ -32,14 +40,16 @@ alias ps="procs"
 alias wget="aria2c"
 alias rm="rm -i"
 alias v="nvim"
-alias g="git"
 alias f="fzf"
 alias myip="curl 'https://checkip.amazonaws.com'"
+alias aws-set-profile='export AWS_PROFILE=$(aws configure list-profiles | fzf --prompt "AWS profile:")'
 alias dots='git --git-dir $HOME/.dotfiles --work-tree $HOME'
 alias dotse='lazygit --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 case "$(uname -s)" in
-Darwin) ;;
+Darwin)
+    alias brewsync="brew update && brew bundle install --cleanup --file=~/Brewfile && brew upgrade"
+    ;;
 Linux)
     open() {
         xdg-open "$@" &

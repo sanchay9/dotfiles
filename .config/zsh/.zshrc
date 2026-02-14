@@ -19,6 +19,7 @@ if [[ $(uname -s) == 'Darwin' ]]; then
     source "$(brew --prefix)/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
     source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
     source "${HOME}/.local/share/cargo/env"
+    eval "$(/usr/libexec/path_helper)"
 else
     source "/usr/share/doc/pkgfile/command-not-found.zsh" # requires pkgfile
     source "/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"

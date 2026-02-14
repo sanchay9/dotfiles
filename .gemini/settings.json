@@ -21,16 +21,16 @@
         }
     },
     "general": {
-        "disableAutoUpdate": true,
         "preferredEditor": "nvim",
-        "previewFeatures": true,
         "vimMode": false,
         "enableAutoUpdate": false
     },
     "ui": {
         "hideTips": true,
         "hideBanner": true,
-        "theme": "Default"
+        "hideFooter": false,
+        "theme": "Default",
+        "showMemoryUsage": false
     },
     "telemetry": {
         "enabled": false,
@@ -47,4 +47,3 @@
         }
     }
 }
-

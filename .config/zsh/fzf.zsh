@@ -13,7 +13,6 @@ fi
 FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
 FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"
     --prompt ' ∷  ' \
-    --style=minimal \
     --info=right \
     --height 60% \
     --margin=1,3 \
@@ -33,7 +32,7 @@ FZF_CTRL_R_OPTS="
     --prompt '   '
     --bind 'enter:execute-silent(echo -n {2..} | ${copy_cmd})+abort'
 "
-FZF_ALT_C_COMMAND="fd --prune --type d . . ~ ~/work ~/work/cx-core ~/dev ~/.config 2>/dev/null"
+FZF_ALT_C_COMMAND="fd --prune --type d . . ~ ~/code ~/work ~/work/cx-core ~/dev ~/.config 2>/dev/null"
 FZF_ALT_C_OPTS="
     --prompt '   '
     --bind 'alt-p:change-preview-window(hidden|)'
@@ -59,7 +58,7 @@ set-aws-profile() {
 }
 
 fzf_git_checkout_branch() {
-    git rev-parse --is-inside-work-tree &>/dev/null || return
+    git rev-parse --is-inside-work-tree &>/dev/null && git status --porcelain | grep . &>/dev/null && return
 
     branches=$(git branch "$@" --sort=-committerdate --sort=-HEAD --format=$'%(HEAD) %(color:yellow)%(refname:short) %(color:green)(%(committerdate:relative))%(color:reset)' --color=always | column -ts$'\t')
     current=$(git symbolic-ref --short HEAD)
@@ -75,7 +74,7 @@ fzf_git_checkout_branch() {
             --preview "git log -1 --date=short \$(cut -c3- <<< {} | cut -d' ' -f1) --" "$@" | sed 's/^\* //' | awk '{print $1}'
     )
     if [[ -n $branch ]]; then
-        echo && git checkout "$branch" && zle reset-prompt
+        echo && git checkout "$branch" && vcs_info && zle reset-prompt
     fi
 }
 zle -N fzf_git_checkout_branch

@@ -2,11 +2,15 @@ bindkey -v
 export KEYTIMEOUT=1
 bindkey -v '^?' backward-delete-char # required for backspace to work properly
 
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd 'V' edit-command-line
+
 # cursor shape for different vi modes.
 zle-keymap-select() {
     case $KEYMAP in
-        vicmd) echo -ne '\e[1 q';;         # block
-        viins|main|'') echo -ne '\e[5 q';; # beam
+    vicmd) echo -ne '\e[1 q' ;;             # block
+    viins | main | '') echo -ne '\e[5 q' ;; # beam
     esac
 }
 
@@ -18,8 +22,8 @@ zle-line-init() {
 zle -N zle-keymap-select
 zle -N zle-line-init
 
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+echo -ne '\e[5 q'                # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q'; } # Use beam shape cursor for each new prompt.
 
 # text objects for quotes and brackets
 autoload -Uz select-bracketed select-quoted
