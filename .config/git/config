@@ -1,17 +1,16 @@
 [user]
 	name = sanchaykumar
 	email = sanchaykumar9@gmail.com
-[include]
-	path = ~/.config/git/catppuccin.gitconfig
 [delta]
     navigate = true    # use n and N to move between diff sections
-	features = catppuccin-mocha
 [includeIf "gitdir:~/work/"]
     path = ~/work/.gitconfig
 [init]
 	defaultbranch = main
 [color]
 	ui = auto
+[pull]
+	rebase = true
 [rebase]
     updateRefs = true
 [core]
@@ -24,7 +23,7 @@
 [interactive]
     diffFilter = delta --color-only
 [merge]
-    conflictstyle = diff3
+    conflictStyle = zdiff3
 [diff]
     colorMoved = default
 [alias]
